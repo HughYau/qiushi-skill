@@ -116,15 +116,21 @@
     text-align: center;
   }
 
-  .hero::after {
-    content: "求是";
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-portrait {
     position: absolute;
-    inset: auto 24px 18px auto;
-    font-size: clamp(3.2rem, 10vw, 5.5rem);
-    line-height: 1;
-    font-weight: 900;
-    color: rgba(139, 26, 26, 0.06);
+    left: 18px;
+    bottom: 18px;
+    width: min(15vw, 150px);
+    min-width: 118px;
+    opacity: 0.2;
     pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
   }
 
   .hero-slogan {
@@ -134,12 +140,25 @@
     letter-spacing: 0.52em;
   }
 
-  .hero-title {
-    margin: 18px 0 8px;
-    font-size: clamp(3rem, 11vw, 5.4rem);
-    line-height: 1;
-    letter-spacing: 0.12em;
+  .hero-title-lockup {
+    margin: 18px auto 8px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(10px, 2vw, 18px);
+    flex-wrap: wrap;
+  }
+
+  .hero-calligraphy {
+    width: clamp(164px, 30vw, 276px);
+  }
+
+  .hero-title-skill {
     color: var(--color-primary);
+    font-size: clamp(2.4rem, 7vw, 4.1rem);
+    line-height: 0.92;
+    font-weight: 900;
+    letter-spacing: 0.12em;
     text-indent: 0.12em;
   }
 
@@ -314,6 +333,12 @@
   .weapon-card p {
     margin: 10px 0 0;
     color: var(--color-muted);
+  }
+
+  .principle-calligraphy {
+    display: block;
+    width: min(100%, 300px);
+    margin: 12px auto 4px;
   }
 
   .layer-stack {
@@ -552,8 +577,27 @@
       padding: calc(10.5px + 16px);
     }
 
-    .hero-title {
-      font-size: clamp(2.4rem, 13vw, 4rem);
+    .hero-title-lockup {
+      margin-top: 16px;
+      gap: 8px;
+    }
+
+    .hero-calligraphy {
+      width: min(64vw, 216px);
+    }
+
+    .hero-title-skill {
+      font-size: clamp(2rem, 9vw, 3rem);
+      letter-spacing: 0.08em;
+      text-indent: 0.08em;
+    }
+
+    .hero-portrait {
+      left: 8px;
+      bottom: 14px;
+      width: 106px;
+      min-width: 0;
+      opacity: 0.12;
     }
 
     .hero-slogan,
@@ -581,6 +625,11 @@
   }
 
   @media (max-width: 400px) {
+    .hero-title-lockup {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .hero-actions,
     .cta-actions {
       flex-direction: column;
@@ -620,21 +669,27 @@
 <body>
   <main class="page">
     <header class="frame hero reveal" id="top">
-      <p class="hero-slogan">丢掉幻想，准备斗争</p>
-      <h1 class="hero-title">求是 Skill</h1>
-      <p class="hero-subtitle">武装 AI 的大脑</p>
-      <p class="hero-copy">
-        你的 AI 不应该只是一个唯唯诺诺的工具。它应该是一个<strong>先看事实、再下判断、能够持续推进</strong>的行动者。
-        「求是 Skill」从教员思想中提炼一条总原则与九大方法论工具，把抽象理念变成可执行的工作方式。
-      </p>
-      <div class="hero-meta">
-        <img
-          src="https://img.shields.io/github/stars/HughYau/qiushi-skill?style=flat-square&color=8b1a1a&labelColor=f5efe6"
-          alt="求是 Skill GitHub Star 徽标"
-        >
-      </div>
-      <div class="hero-actions">
-        <a class="button button-primary" href="https://github.com/HughYau/qiushi-skill" target="_blank" rel="noreferrer">★ GitHub 仓库</a>
+      <img class="hero-portrait" src="./assets/avatar_red.png" alt="" aria-hidden="true">
+      <div class="hero-content">
+        <p class="hero-slogan">丢掉幻想，准备斗争</p>
+        <h1 class="hero-title-lockup">
+          <img class="hero-calligraphy" src="./assets/qiushi.png" alt="求是">
+          <span class="hero-title-skill">Skill</span>
+        </h1>
+        <p class="hero-subtitle">武装 AI 的大脑</p>
+        <p class="hero-copy">
+          你的 AI 不应该只是一个唯唯诺诺的工具。它应该是一个<strong>先看事实、再下判断、能够持续推进</strong>的行动者。
+          「求是 Skill」从教员思想中提炼一条总原则与九大方法论工具，把抽象理念变成可执行的工作方式。
+        </p>
+        <div class="hero-meta">
+          <img
+            src="https://img.shields.io/github/stars/HughYau/qiushi-skill?style=flat-square&color=8b1a1a&labelColor=f5efe6"
+            alt="求是 Skill GitHub Star 徽标"
+          >
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/HughYau/qiushi-skill" target="_blank" rel="noreferrer">★ GitHub 仓库</a>
+        </div>
       </div>
     </header>
 
@@ -687,7 +742,7 @@
       <div class="methodology-grid">
         <article class="principle-card">
           <span class="principle-label">总原则</span>
-          <h3>实事求是</h3>
+          <h3><img class="principle-calligraphy" src="./assets/shishiqiushi.png" alt="实事求是"></h3>
           <p>从客观存在着的实际事物出发，让事实规定判断，让现实修正理论。它不是第十件武器，而是全部武器共同服从的认识论准绳。</p>
         </article>
         <div class="layer-stack">
