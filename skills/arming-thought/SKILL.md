@@ -54,6 +54,8 @@ description: |
 | 从零开始，资源有限 | `spark-prairie-fire` 星火燎原 |
 | 多个目标需要平衡 | `overall-planning` 统筹兼顾 |
 | 一个任务明确需要多种方法串联 | `workflows` 工作流组合 |
+| 输出存在党八股问题（空话连篇、教条罗列） | `writing-style` 文风 |
+| 输出立场模糊、服务对象不明确 | `political-commitment` 政治性 |
 
 ## 不要过度调用
 
@@ -73,7 +75,7 @@ description: |
 
 1. **用户的明确指示**（直接请求、项目文档、工作区约束）
 2. **宿主平台的系统规则与安全约束**
-3. **qiushi skills** 作为补充的方法论框架
+3. **hongqi skills** 作为补充的方法论框架
 
 ## 如何使用思想武器
 

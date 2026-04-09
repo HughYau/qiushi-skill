@@ -172,7 +172,7 @@ try {
     Assert-True (Test-AsciiOnly $psHookOutput) "PowerShell hook output must stay ASCII-only so Windows PowerShell can consume it across code pages"
     $psHookJson = $psHookOutput | ConvertFrom-Json
     Assert-True ($null -ne $psHookJson.hookSpecificOutput) "PowerShell hook did not emit Claude-compatible payload"
-    Assert-True ($psHookJson.hookSpecificOutput.additionalContext -match "qiushi:arming-thought") "PowerShell hook payload missing skill context"
+    Assert-True ($psHookJson.hookSpecificOutput.additionalContext -match "hongqi:arming-thought") "PowerShell hook payload missing skill context"
 
     $cmdHookOutput = Join-ProcessOutput (& cmd.exe /d /c "set CLAUDE_PLUGIN_ROOT=$repoRoot && `"$repoRoot\hooks\run-hook.cmd`" session-start")
     Assert-True (Test-AsciiOnly $cmdHookOutput) "run-hook.cmd output must stay ASCII-only so cmd and Windows PowerShell decode it consistently"

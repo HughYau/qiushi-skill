@@ -1,4 +1,4 @@
-# qiushi-skill for Codex
+# hongqi-skill for Codex
 
 按下面步骤接入：
 

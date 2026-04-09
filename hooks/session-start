@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SessionStart hook for qiushi-skill plugin
+# SessionStart hook for hongqi-skill plugin
 # 在每次会话开始时注入"武装思想"入口 skill
 
 set -euo pipefail
@@ -29,7 +29,7 @@ escape_for_json() {
 }
 
 arming_thought_escaped=$(escape_for_json "$arming_thought_content")
-session_context="<QIUSHI_SKILL>\n已加载 qiushi:arming-thought。请先遵守用户指令、项目约束和宿主平台规则，再在明确适用时把这份方法论作为补充的路由与校验框架。\n\n${arming_thought_escaped}\n\n</QIUSHI_SKILL>"
+session_context="<HONGQI_SKILL>\n已加载 hongqi:arming-thought。请先遵守用户指令、项目约束和宿主平台规则，再在明确适用时把这份方法论作为补充的路由与校验框架。\n\n${arming_thought_escaped}\n\n</HONGQI_SKILL>"
 
 # 平台适配输出
 # Cursor hooks 使用 additional_context

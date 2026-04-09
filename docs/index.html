@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="求是 Skill：从方法论出发，系统性地武装 AI Agent 的大脑。">
-<title>求是 Skill | 武装 AI 的大脑</title>
+<meta name="description" content="红旗 Skill：从方法论出发，系统性地武装 AI Agent 的大脑。">
+<title>红旗 Skill | 武装 AI 的大脑</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap');
 
@@ -116,21 +116,15 @@
     text-align: center;
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-portrait {
+  .hero::after {
+    content: "红旗";
     position: absolute;
-    left: 18px;
-    bottom: 18px;
-    width: min(15vw, 150px);
-    min-width: 118px;
-    opacity: 0.2;
+    inset: auto 24px 18px auto;
+    font-size: clamp(3.2rem, 10vw, 5.5rem);
+    line-height: 1;
+    font-weight: 900;
+    color: rgba(139, 26, 26, 0.06);
     pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: multiply;
   }
 
   .hero-slogan {
@@ -140,25 +134,12 @@
     letter-spacing: 0.52em;
   }
 
-  .hero-title-lockup {
-    margin: 18px auto 8px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: clamp(10px, 2vw, 18px);
-    flex-wrap: wrap;
-  }
-
-  .hero-calligraphy {
-    width: clamp(164px, 30vw, 276px);
-  }
-
-  .hero-title-skill {
-    color: var(--color-primary);
-    font-size: clamp(2.4rem, 7vw, 4.1rem);
-    line-height: 0.92;
-    font-weight: 900;
+  .hero-title {
+    margin: 18px 0 8px;
+    font-size: clamp(3rem, 11vw, 5.4rem);
+    line-height: 1;
     letter-spacing: 0.12em;
+    color: var(--color-primary);
     text-indent: 0.12em;
   }
 
@@ -188,24 +169,6 @@
     align-items: center;
     gap: 14px;
     flex-wrap: wrap;
-  }
-
-  .star-badge-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px;
-    border: 1.5px solid var(--color-primary);
-    background: rgba(245, 239, 230, 0.9);
-    text-decoration: none;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
-  }
-
-  .star-badge-link:hover,
-  .star-badge-link:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 4px 4px 0 rgba(139, 26, 26, 0.14);
-    background: rgba(139, 26, 26, 0.08);
   }
 
   .version-pill {
@@ -345,17 +308,12 @@
 
   .principle-card p,
   .layer-card p,
+  .star-panel p,
   .platform-card p,
   .clarify-card p,
   .weapon-card p {
     margin: 10px 0 0;
     color: var(--color-muted);
-  }
-
-  .principle-calligraphy {
-    display: block;
-    width: min(100%, 300px);
-    margin: 12px auto 4px;
   }
 
   .layer-stack {
@@ -594,27 +552,8 @@
       padding: calc(10.5px + 16px);
     }
 
-    .hero-title-lockup {
-      margin-top: 16px;
-      gap: 8px;
-    }
-
-    .hero-calligraphy {
-      width: min(64vw, 216px);
-    }
-
-    .hero-title-skill {
-      font-size: clamp(2rem, 9vw, 3rem);
-      letter-spacing: 0.08em;
-      text-indent: 0.08em;
-    }
-
-    .hero-portrait {
-      left: 8px;
-      bottom: 14px;
-      width: 106px;
-      min-width: 0;
-      opacity: 0.12;
+    .hero-title {
+      font-size: clamp(2.4rem, 13vw, 4rem);
     }
 
     .hero-slogan,
@@ -642,11 +581,6 @@
   }
 
   @media (max-width: 400px) {
-    .hero-title-lockup {
-      flex-direction: column;
-      align-items: center;
-    }
-
     .hero-actions,
     .cta-actions {
       flex-direction: column;
@@ -686,26 +620,21 @@
 <body>
   <main class="page">
     <header class="frame hero reveal" id="top">
-      <img class="hero-portrait" src="./assets/avatar_red.png" alt="" aria-hidden="true">
-      <div class="hero-content">
-        <p class="hero-slogan">丢掉幻想，准备斗争</p>
-        <h1 class="hero-title-lockup">
-          <img class="hero-calligraphy" src="./assets/qiushi.png" alt="求是">
-          <span class="hero-title-skill">Skill</span>
-        </h1>
-        <p class="hero-subtitle">武装 AI 的大脑</p>
-        <p class="hero-copy">
-          你的 AI 不应该只是一个唯唯诺诺的工具。它应该是一个<strong>先看事实、再下判断、能够持续推进</strong>的行动者。
-          「求是 Skill」从教员思想中提炼一条总原则与九大方法论工具，把抽象理念变成可执行的工作方式。
-        </p>
-        <div class="hero-meta">
-          <a class="star-badge-link" href="https://github.com/HughYau/qiushi-skill" target="_blank" rel="noreferrer" aria-label="在 GitHub 上给求是 Skill 点 Star">
-            <img
-              src="https://img.shields.io/github/stars/HughYau/qiushi-skill?style=flat-square&color=8b1a1a&labelColor=f5efe6"
-              alt="求是 Skill GitHub Star 徽标（可点击）"
-            >
-          </a>
-        </div>
+      <p class="hero-slogan">丢掉幻想，准备斗争</p>
+      <h1 class="hero-title">红旗 Skill</h1>
+      <p class="hero-subtitle">武装 AI 的大脑</p>
+      <p class="hero-copy">
+        你的 AI 不应该只是一个唯唯诺诺的工具。它应该是一个<strong>先看事实、再下判断、能够持续推进</strong>的行动者。
+        「红旗 Skill」从教员思想中提炼一条总原则与九大方法论工具，把抽象理念变成可执行的工作方式。
+      </p>
+      <div class="hero-meta">
+        <img
+          src="https://img.shields.io/github/stars/HughYau/hongqi-skill?style=flat-square&color=8b1a1a&labelColor=f5efe6"
+          alt="红旗 Skill GitHub Star 徽标"
+        >
+      </div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="https://github.com/HughYau/hongqi-skill" target="_blank" rel="noreferrer">★ GitHub 仓库</a>
       </div>
     </header>
 
@@ -753,12 +682,12 @@
       <p class="section-kicker">总原则 + 三层架构</p>
       <h2 class="section-heading">不是零散技巧，而是一套成体系的认知工事。</h2>
       <p class="section-intro">
-        求是 Skill 并不把方法论拆成孤立口号，而是从总原则出发，搭起哲学基座、工作方法与战略战术三层结构。
+        红旗 Skill 并不把方法论拆成孤立口号，而是从总原则出发，搭起哲学基座、工作方法与战略战术三层结构。
       </p>
       <div class="methodology-grid">
         <article class="principle-card">
           <span class="principle-label">总原则</span>
-          <h3><img class="principle-calligraphy" src="./assets/shishiqiushi.png" alt="实事求是"></h3>
+          <h3>实事红旗</h3>
           <p>从客观存在着的实际事物出发，让事实规定判断，让现实修正理论。它不是第十件武器，而是全部武器共同服从的认识论准绳。</p>
         </article>
         <div class="layer-stack">
@@ -895,7 +824,7 @@
         <article class="clarify-card">
           <span class="clarify-index">其三</span>
           <h3>这不是教条</h3>
-          <p>真正反对的是抽象套用。求是 Skill 的出发点始终是“对于具体的事物作具体的分析”。</p>
+          <p>真正反对的是抽象套用。红旗 Skill 的出发点始终是“对于具体的事物作具体的分析”。</p>
         </article>
       </div>
     </section>
@@ -903,13 +832,29 @@
     <section class="frame section reveal" id="starhistory">
       <span class="section-label">Star History</span>
     
-          <a class="star-link" href="https://www.star-history.com/?repos=HughYau%2Fqiushi-skill&type=date&legend=top-left" target="_blank" rel="noreferrer">
+      <!-- <div class="star-grid">
+        <article class="star-panel">
+          <h3>实时 Star 数</h3>
+          <p>访问者不必点进仓库，也能第一时间看到项目正在被多少人持续关注。</p>
+          <div class="badge-block">
             <img
-              src="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&legend=top-left"
-              alt="求是 Skill Star History 图表"
+              src="https://img.shields.io/github/stars/HughYau/hongqi-skill?style=flat-square&color=8b1a1a&labelColor=f5efe6"
+              alt="红旗 Skill 实时 Star 徽标"
+            >
+          </div>
+          <p>如果你认同这种“先调查、再判断、再推进”的 AI Agent 方法论，就让更多人先看到它。</p>
+        </article>
+        <article class="star-panel chart-shell">
+          <h3>Star History 图表</h3> -->
+    
+          <a class="star-link" href="https://www.star-history.com/?repos=HughYau%2Fhongqi-skill&type=date&legend=top-left" target="_blank" rel="noreferrer">
+            <img
+              src="https://api.star-history.com/chart?repos=HughYau/hongqi-skill&type=date&legend=top-left"
+              alt="红旗 Skill Star History 图表"
             >
           </a>
-
+        <!-- </article>
+      </div> -->
     </section>
 
     <section class="frame section reveal" id="platforms">
@@ -969,9 +914,10 @@
     </div>
 
     <footer class="frame cta reveal">
-      <p>如果你觉得有帮助，就给仓库点一个 Star。</p>
+      <p>如果你觉得有帮助，就给仓库点一个 Star，让这套体系被更多真正需要它的人看到。</p>
       <div class="cta-actions">
-        <a class="button button-primary" href="https://github.com/HughYau/qiushi-skill" target="_blank" rel="noreferrer">★ 给仓库加星</a>
+        <a class="button button-primary" href="https://github.com/HughYau/hongqi-skill" target="_blank" rel="noreferrer">★ 给仓库加星</a>
+        <a class="button button-secondary" href="https://github.com/HughYau/hongqi-skill" target="_blank" rel="noreferrer">GitHub →</a>
       </div>
       <p class="footer-note">MIT License · GitHub Pages /docs 部署</p>
     </footer>

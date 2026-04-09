@@ -1,16 +1,15 @@
 <p align="center">
-  <img src="assets/logo_main.png" width="400"/>
+  <span style="font-size: 48px; font-weight: bold; color: #c41e3a;">🚩 红旗 Skill</span>
 </p>
 
-# 🔴 求是 Skill —— 武装 AI 的大脑
+# 🔴 红旗 Skill —— 武装 AI 的大脑
 
 > 🌟 "我们的同志在困难的时候，要看到成绩，要看到光明，要提高我们的勇气。"
-
 > ✊ "世界上怕就怕'认真'二字。"
 
 
 <p align="center">
-  <a href="https://hughyau.com/qiushi-skill/">
+  <a href="https://hughyau.com/hongqi-skill/">
     <img src="https://img.shields.io/badge/%E5%85%88%E7%9C%8B%E4%BB%8B%E7%BB%8D%E9%A1%B5-%E6%9B%B4%E7%9B%B4%E8%A7%82%E5%9C%B0%E7%90%86%E8%A7%A3%E6%B1%82%E6%98%AF%20-8b1a1a?style=for-the-badge&labelColor=f5efe6&color=8b1a1a" alt="先看介绍页">
   </a>
 </p>
@@ -19,7 +18,7 @@
 
 **你的 AI 不应该是一个唯唯诺诺的工具。它应该是一个先看事实、再下判断的行动者。**
 
-「求是 Skill」是一个 AI Agent Skills 合集，从教员思想中提炼出一条总原则和九大方法论工具，系统性地武装 AI 的大脑。不是口号，不是鸡汤，而是可操作的方法论集合。
+「红旗 Skill」是一个 AI Agent Skills 合集，从教员思想中提炼出一条总原则和九大方法论工具，系统性地武装 AI 的大脑。不是口号，不是鸡汤，而是可操作的方法论集合。
 
 每一条方法都有据可依、有迹可循，直接引用教员选集原文（详见各 skill 目录下的 `original-texts.md`）。
 
@@ -43,8 +42,8 @@
 graph TD
     A[精神底色<br/>精益求精 · 坚持到底]
     B[总原则<br/>实事求是]
-    C[第一层：哲学基座<br/>矛盾分析法 · 实践认识论]
-    D[第二层：工作方法<br/>调查研究 · 群众路线 · 批评与自我批评]
+    C[第一层：哲学基座<br/>矛盾分析法 · 实践认识论 · 政治性]
+    D[第二层：工作方法<br/>调查研究 · 群众路线 · 批评与自我批评 · 文风]
     E[第三层：战略战术<br/>持久战略 · 集中兵力 · 星火燎原 · 统筹兼顾]
 
     A --> B --> C --> D --> E
@@ -56,11 +55,13 @@ graph TD
 ⚙️ **第一层·哲学基座** —— 分析任何问题的底层框架
 - **⚔️ 矛盾分析法**：识别矛盾、抓住主要矛盾、区分矛盾性质。"捉住了这个主要矛盾，一切问题就迎刃而解了。"
 - **🔄 实践认识论**：实践→认识→再实践，螺旋上升。"实践是检验真理的唯一标准。"
+- **🎯 政治性**：立场鲜明，服务工农兵。不是抽象的人民性，而是为工农兵服务。
 
 🛠️ **第二层·工作方法** —— 日常工作的基本方法
 - **🔎 调查研究**：没有调查就没有发言权。"调查就像'十月怀胎'，解决问题就像'一朝分娩'。"
 - **👥 群众路线**：从群众中来，到群众中去。收集→系统化→返回→验证→再收集。
 - **🪞 批评与自我批评**：惩前毖后，治病救人。"房子是应该经常打扫的。"
+- **✍️ 文风**：反对党八股，提倡生动活泼的文风。"甲乙丙丁，开中药铺"是教条主义的表现。
 
 🎖️ **第三层·战略战术** —— 面对具体任务的行动指导
 - **⏳ 持久战略**：战略上藐视，战术上重视。不急于求成，也不畏难放弃。
@@ -68,15 +69,17 @@ graph TD
 - **🔥 星火燎原**：建立根据地，不做流寇。从小处着手，积累发展。
 - **⚖️ 统筹兼顾**：调动一切积极因素。拒绝片面性，寻找动态平衡。
 
-## 🗡️ 九大思想武器
+## 🗡️ 十一大思想武器
 
 | 思想武器 | 核心要义 | 原著出处 | 适用场景 |
 |---------|---------|---------|---------|
 | ⚔️ 矛盾分析法 | 抓主要矛盾 | 《矛盾论》 | 复杂问题分析 |
 | 🔄 实践认识论 | 实践→认识→再实践 | 《实践论》 | 方案验证与迭代 |
+| 🎯 政治性 | 为工农兵服务，立场鲜明 | 《在延安文艺座谈会上的谈话》 | 立场审视与表态 |
 | 🔎 调查研究 | 没有调查就没有发言权 | 《反对本本主义》 | 决策前的信息收集 |
 | 👥 群众路线 | 从群众中来到群众中去 | 《关于领导方法的若干问题》 | 反馈整合与方案验证 |
 | 🪞 批评与自我批评 | 惩前毖后治病救人 | 《论联合政府》 | 工作审视与质量改进 |
+| ✍️ 文风 | 反对党八股 | 《反对党八股》 | 输出质量与表达效果 |
 | ⏳ 持久战略 | 战略上藐视战术上重视 | 《论持久战》 | 长期复杂任务规划 |
 | 🎯 集中兵力 | 集中优势兵力各个歼灭 | 《中国革命战争的战略问题》 | 优先级决策与资源聚焦 |
 | 🔥 星火燎原 | 建立根据地不做流寇 | 《星星之火，可以燎原》 | 从零开始的发展策略 |
@@ -92,30 +95,13 @@ graph TD
 - **macOS / Linux**：需要可用的 `bash` 或 `sh`
 - **验证脚本**：仓库内置 `tests/validate.sh`（macOS/Linux）和 `tests/validate.ps1`（Windows），可用于安装后自检
 
-### 方式一：环境与插件安装
+### 方式一：手动安装
 
 #### Claude Code
 
-**方法 A：通过 Claude Plugin Hub 安装（推荐）**
-
-在终端中一键安装：
-
 ```bash
-npx claudepluginhub hughyau/qiushi-skill
-```
-
-或者在 Claude Code 中通过 Marketplace 手动安装：
-
-1. 添加 Marketplace（只需执行一次）：
-   `/plugin marketplace add https://www.claudepluginhub.com/api/plugins/hughyau-qiushi-skill/marketplace.json`
-2. 安装插件：
-   `/plugin install hughyau-qiushi-skill@cpd-hughyau-qiushi-skill`
-
-**方法 B：源码克隆安装**
-
-```bash
-git clone https://github.com/HughYau/qiushi-skill
-cd qiushi-skill
+git clone https://github.com/HughYau/hongqi-skill
+cd hongqi-skill
 claude --plugin-dir .
 ```
 
@@ -123,7 +109,7 @@ claude --plugin-dir .
 
 ```bash
 # 加入 ~/.bashrc 或 ~/.zshrc
-alias claude='claude --plugin-dir /path/to/qiushi-skill'
+alias claude='claude --plugin-dir /path/to/hongqi-skill'
 ```
 
 **macOS / Linux 验证：**
@@ -157,7 +143,7 @@ powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
 
 #### OpenCode
 
-参考 [docs/README.opencode.md](docs/README.opencode.md) 或直接让 OpenCode 读取 [.opencode/INSTALL.md](https://raw.githubusercontent.com/HughYau/qiushi-skill/refs/heads/main/.opencode/INSTALL.md)。
+参考 [docs/README.opencode.md](docs/README.opencode.md) 或直接让 OpenCode 读取 [.opencode/INSTALL.md](.opencode/INSTALL.md)。
 
 #### 其他平台
 
@@ -172,13 +158,13 @@ powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
 如果你在让 Claude Code、Cursor Agent 或其他终端型 AI 助手代你安装，可以直接粘贴下面这段：
 
 ```text
-请帮我安装 qiushi-skill：
+请帮我安装 hongqi-skill：
 
 1. 如果当前目录还没有这个仓库，执行：
-   git clone https://github.com/HughYau/qiushi-skill
+   git clone https://github.com/HughYau/hongqi-skill
 
 2. 进入仓库目录：
-   cd qiushi-skill
+   cd hongqi-skill
 
 3. 如果当前环境安装了 Claude Code，执行：
    claude --plugin-dir .
@@ -219,9 +205,11 @@ powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
 ```
 /contradiction-analysis   ⚔️  矛盾分析法
 /practice-cognition       🔄  实践认识论
+/political-commitment     🎯  政治性
 /investigation-first      🔎  调查研究
 /mass-line                👥  群众路线
 /criticism-self-criticism 🪞  批评与自我批评
+/writing-style            ✍️  文风
 /protracted-strategy      ⏳  持久战略
 /concentrate-forces       🎯  集中兵力
 /spark-prairie-fire       🔥  星火燎原
@@ -280,7 +268,7 @@ powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
 ## 🗂️ 项目结构
 
 ```
-qiushi-skill/
+hongqi-skill/
 ├── .claude-plugin/plugin.json        # Claude Code 插件配置
 ├── .codex/INSTALL.md                 # Codex 安装入口
 ├── .cursor-plugin/plugin.json        # Cursor 插件配置
@@ -298,9 +286,11 @@ qiushi-skill/
 │   │   └── SKILL.md
 │   ├── contradiction-analysis/
 │   ├── practice-cognition/
+│   ├── political-commitment/
 │   ├── investigation-first/
 │   ├── mass-line/
 │   ├── criticism-self-criticism/
+│   ├── writing-style/
 │   ├── protracted-strategy/
 │   ├── concentrate-forces/
 │   ├── spark-prairie-fire/
@@ -339,11 +329,11 @@ qiushi-skill/
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=HughYau%2Fqiushi-skill&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=HughYau%2Fhongqi-skill&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=HughYau/hongqi-skill&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=HughYau/hongqi-skill&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=HughYau/hongqi-skill&type=date&legend=top-left" />
  </picture>
 </a>
 

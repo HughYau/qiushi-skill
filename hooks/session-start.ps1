@@ -78,12 +78,12 @@ if (-not (Test-Path -LiteralPath $skillPath)) {
 
 $armingThoughtContent = Get-Content -LiteralPath $skillPath -Raw -Encoding UTF8
 $sessionContext = @"
-<QIUSHI_SKILL>
-已加载 qiushi:arming-thought。请先遵守用户指令、项目约束和宿主平台规则，再在明确适用时把这份方法论作为补充的路由与校验框架。
+<HONGQI_SKILL>
+已加载 hongqi:arming-thought。请先遵守用户指令、项目约束和宿主平台规则，再在明确适用时把这份方法论作为补充的路由与校验框架。
 
 $armingThoughtContent
 
-</QIUSHI_SKILL>
+</HONGQI_SKILL>
 "@
 
 $sessionContextJson = ConvertTo-AsciiJsonString -Value $sessionContext

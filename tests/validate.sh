@@ -125,7 +125,7 @@ if [ -x "$HOOK" ] || chmod +x "$HOOK"; then
   if [ -n "$hook_output" ]; then
     if ! echo "$hook_output" | python3 -c "import json,sys; json.load(sys.stdin)" 2>/dev/null; then
       fail "Bash hook output is not valid JSON"
-    elif ! echo "$hook_output" | grep -q "qiushi:arming-thought"; then
+    elif ! echo "$hook_output" | grep -q "hongqi:arming-thought"; then
       fail "Bash hook payload missing skill context"
     fi
   else

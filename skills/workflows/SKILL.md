@@ -150,8 +150,8 @@ investigation-first → contradiction-analysis → concentrate-forces → practi
 ### 工作流
 
 ```
-mass-line → contradiction-analysis → practice-cognition → criticism-self-criticism → mass-line（循环）
- 群众路线 →     矛盾分析          →    实践认识论      →     批评与自我批评      →  群众路线（下一轮）
+mass-line → contradiction-analysis → practice-cognition → political-commitment → writing-style → criticism-self-criticism → mass-line（循环）
+ 群众路线 →     矛盾分析          →    实践认识论      →     政治性            →     文风          →     批评与自我批评      →  群众路线（下一轮）
 ```
 
 ### 步骤详解
@@ -189,11 +189,35 @@ mass-line → contradiction-analysis → practice-cognition → criticism-self-c
 - 目标：实施改进并验证效果
 - 循环终止条件（开始前明确说明）：当 [具体指标] 达到 [具体数值/状态] 时，本轮迭代完成
 
-**Step 4：criticism-self-criticism（批评与自我批评）**
+**Step 4：political-commitment（政治性）**
+- 输入：改进后的方案
+- 目标：检查方案的立场是否鲜明、服务对象是否明确
+- 输出（传递给 Step 5）：
+  ```
+  立场明确性：……
+  服务对象：……
+  直面矛盾情况：……
+  ```
+- 终止条件：立场鲜明，对象具体
+
+**Step 5：writing-style（文风）**
+- 输入：Step 4 的方案
+- 目标：检查并修正党八股问题
+- 输出（传递给 Step 6）：
+  ```
+  文风自检：
+  - [ ] 没有空话连篇
+  - [ ] 没有"甲乙丙丁"式罗列
+  - [ ] 每句话都有信息量
+  - [ ] 受众能看懂
+  ```
+- 终止条件：通过九条罪状自检
+
+**Step 6：criticism-self-criticism（批评与自我批评）**
 - 目标：审视本轮迭代的过程质量
 - 必须输出：工作审视报告
 
-**Step 5：mass-line（下一轮）**
+**Step 7：mass-line（下一轮）**
 - 基于本轮的改进结果，重新收集反馈，开始新的迭代循环
 
 **整体循环终止条件：** 当 mass-line 的多源反馈显示"没有新的重要问题"或用户确认满意时，退出循环。

@@ -1,4 +1,4 @@
-# qiushi-skill for OpenCode
+# hongqi-skill for OpenCode
 
 按下面步骤接入：
 

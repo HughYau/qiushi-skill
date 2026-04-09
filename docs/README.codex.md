@@ -1,6 +1,6 @@
 # Codex 使用说明
 
-`qiushi-skill` 在 Codex 中不依赖 Claude/Cursor 插件壳。核心做法是：把 `skills/` 当作方法论技能库，把 `commands/` 当作可选的手动命令模板。
+`hongqi-skill` 在 Codex 中不依赖 Claude/Cursor 插件壳。核心做法是：把 `skills/` 当作方法论技能库，把 `commands/` 当作可选的手动命令模板。
 
 ## 快速开始
 

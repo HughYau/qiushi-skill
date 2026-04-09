@@ -1,6 +1,6 @@
 # OpenCode 使用说明
 
-`qiushi-skill` 在 OpenCode 中建议以“手动加载 skill 文件”的方式使用，避免把平台差异隐藏在文档承诺里。
+`hongqi-skill` 在 OpenCode 中建议以“手动加载 skill 文件”的方式使用，避免把平台差异隐藏在文档承诺里。
 
 ## 快速开始
 
