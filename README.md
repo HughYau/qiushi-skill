@@ -157,7 +157,7 @@ powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
 
 #### OpenCode
 
-参考 [docs/README.opencode.md](docs/README.opencode.md) 或直接让 OpenCode 读取 [.opencode/INSTALL.md](.opencode/INSTALL.md)。
+参考 [docs/README.opencode.md](docs/README.opencode.md) 或直接让 OpenCode 读取 [.opencode/INSTALL.md](https://raw.githubusercontent.com/HughYau/qiushi-skill/refs/heads/main/.opencode/INSTALL.md)。
 
 #### 其他平台
 
