@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/HughYau/qiushi-skill/main/assets/logo_main.png" width="400"/>
 </p>
 
-# Qiushi Skill: 'Seeking Truth from Facts' Skills for AI Agents
+# Qiushi Skill: 'Seeking Truth' Skills for AI Agents
 
 <p align="center">
   <strong>Languages</strong>:
