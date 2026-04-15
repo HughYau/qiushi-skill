@@ -36,13 +36,11 @@ json_validate_file() {
 
   case "$JSON_RUNNER" in
     python3|python)
-      PYTHONUTF8=1 PYTHONIOENCODING=UTF-8 "$JSON_RUNNER" - "$file_path" <<'PY' >/dev/null 2>&1
-import json
-import sys
-
+      PYTHONUTF8=1 PYTHONIOENCODING=UTF-8 "$JSON_RUNNER" -c '
+import json, sys
 with open(sys.argv[1], "r", encoding="utf-8") as handle:
     json.load(handle)
-PY
+' "$file_path" >/dev/null 2>&1
       ;;
     node)
       node -e "JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'))" "$file_path" >/dev/null 2>&1
@@ -56,12 +54,10 @@ PY
 json_validate_stdin() {
   case "$JSON_RUNNER" in
     python3|python)
-      PYTHONUTF8=1 PYTHONIOENCODING=UTF-8 "$JSON_RUNNER" - <<'PY' >/dev/null 2>&1
-import json
-import sys
-
+      PYTHONUTF8=1 PYTHONIOENCODING=UTF-8 "$JSON_RUNNER" -c '
+import json, sys
 json.load(sys.stdin)
-PY
+' >/dev/null 2>&1
       ;;
     node)
       node -e "JSON.parse(require('fs').readFileSync(0, 'utf8'))" >/dev/null 2>&1
