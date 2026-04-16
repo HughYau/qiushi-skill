@@ -51,6 +51,8 @@
 
 教员思想中的方法论——矛盾分析、实践认识论、调查研究、群众路线、批评与自我批评、持久战略——恰恰解决的就是"怎么想问题、怎么做事情"这个根本问题。
 
+> 欢迎支持作者的其他项目！：**[AcademicForge](https://github.com/HughYau/AcademicForge)**：**One Forge, All Skills.** 一键生成安装多个 AI Agent Skills 的跨平台命令。
+> 
 ## ❌ 这不是什么
 
 - 🚫 **这不是 Politics或者Propaganda。** 这是 Methodology。经典唯物辩证法与实践哲学方法论可以用于指导任何需要分析问题和解决问题的场景。
@@ -114,7 +116,6 @@ graph TD
 - 📖 **[分析外行指导内行问题](https://mp.weixin.qq.com/s/bg5cgSAscy37T4gv9YJG0A)**：展示了如何用求是 Skill 拆解复杂的职场现象。
 - 🤖 **[ZZZ 白话讲 AI —— 用“求是方法论”写一本零基础 AI 认知书](https://github.com/mfkyddh/ZZZ-Simple-AI)**：以“求是”方法论组织 AI 入门知识。
 - 🛠️ **[Harness Ralph Qiushi](https://github.com/Tiyou-zm/harness-ralph-qiushi)**：结合求是调查研究与矛盾分析法，构建可靠的长线 Agent 交付循环工作流。
-
 ## 📦 安装
 
 

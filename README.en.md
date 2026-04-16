@@ -36,6 +36,9 @@ Many agents can generate text, but they still fail at disciplined work:
 - spark a prairie fire
 - overall planning
 
+
+> Support author's other repo!: **[AcademicForge](https://github.com/HughYau/AcademicForge)**: **One Forge, All Skills.** An interactive, cross-platform tool to generate simple, one-click installation commands for multiple AI Agent Skills. 
+
 ## Install
 
 ### Preferred: `npx qiushi-skill`
