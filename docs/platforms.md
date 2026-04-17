@@ -13,6 +13,7 @@
 | Hermes Agent | 通过原生 skills 目录支持 | 由 Hermes skills 暴露 | `.hermes/INSTALL.md` | `hermes skills list` + `npx qiushi-skill validate` |
 | Codex | 不依赖插件壳 | 视宿主能力而定 | `.codex/INSTALL.md` | 按文档自检 |
 | OpenCode | 不依赖插件壳 | 视宿主能力而定 | `.opencode/INSTALL.md` | 按文档自检 |
+| nanobot | 通过工作区 skills 目录自动发现 | 视宿主能力而定 | `.nanobot/INSTALL.md` | 按文档自检 |
 | 其他宿主 | 手动集成 | 视宿主能力而定 | 直接复用 `skills/` 和 `commands/` | 手动检查 |
 
 ## Claude Code
@@ -55,6 +56,22 @@ openclaw gateway restart
 3. 启动：`hermes chat --toolsets "skills,terminal"`
 
 更多说明见 [README.hermes.md](README.hermes.md)。
+
+## nanobot
+
+nanobot 通过工作区 skills 目录自动发现并加载 skill。将 `skills/` 目录复制到 nanobot 工作区即可完成接入。
+
+推荐步骤：
+
+1. 复制 `skills/` 到 `~/.nanobot/workspace/skills/`
+   ```bash
+   mkdir -p ~/.nanobot/workspace/skills
+   cp -r skills/* ~/.nanobot/workspace/skills/
+   ```
+2. 新会话中 nanobot 会自动发现所有 skill
+3. 当任务匹配某个方法论时，agent 会按需加载对应 `SKILL.md`
+
+更多说明见 [README.nanobot.md](README.nanobot.md)。
 
 ## Windows
 
