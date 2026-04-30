@@ -1,3 +1,29 @@
+:; #
+:; # Polyglot hook runner: this single file works as both a POSIX shell script
+:; # (lines starting with `:;`) and a Windows .cmd batch file (the lines below
+:; # the blank separator).
+:; #
+:; # On macOS / Linux, /bin/sh executes this file directly (the `.cmd` suffix
+:; # is irrelevant on POSIX). The `:;` lines run normal shell commands; `:` is
+:; # a no-op builtin and `;` separates statements, so anything after `:;` is
+:; # plain sh code. We `exec` into the real hook script and never reach the
+:; # Windows section.
+:; #
+:; # On Windows, cmd.exe parses lines beginning with `:` as labels and skips
+:; # them during sequential execution, so the Windows logic below runs as if
+:; # this header were not present.
+:; #
+:; SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+:; HOOK_NAME="${1:-}"
+:; if [ -z "$HOOK_NAME" ]; then echo "Error: No hook name provided" >&2; exit 1; fi
+:; shift
+:; HOOK_PATH="$SCRIPT_DIR/$HOOK_NAME"
+:; if [ ! -e "$HOOK_PATH" ]; then echo "Error: hook not found: $HOOK_PATH" >&2; exit 1; fi
+:; if [ -x "$HOOK_PATH" ]; then exec "$HOOK_PATH" "$@"; fi
+:; if command -v bash >/dev/null 2>&1; then exec bash "$HOOK_PATH" "$@"; fi
+:; exec sh "$HOOK_PATH" "$@"
+:; exit 1
+
 @echo off
 setlocal
 

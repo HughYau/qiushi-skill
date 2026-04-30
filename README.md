@@ -185,6 +185,7 @@ npx claudepluginhub hughyau/qiushi-skill
    .opencode/INSTALL.md
    .openclaw/INSTALL.md
    .hermes/INSTALL.md
+   .nanobot/INSTALL.md
 
 6. 安装完成后执行：
    npx qiushi-skill validate
@@ -245,7 +246,7 @@ powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
 ```
 
 
-更多平台细节见根目录下的 `.codex/INSTALL.md`、`.opencode/INSTALL.md`、`.openclaw/INSTALL.md`、`.hermes/INSTALL.md`；源码仓库还包含 `docs/platforms.md`。
+更多平台细节见根目录下的 `.codex/INSTALL.md`、`.opencode/INSTALL.md`、`.openclaw/INSTALL.md`、`.hermes/INSTALL.md`、`.nanobot/INSTALL.md`；源码仓库还包含 `docs/platforms.md`。
 
 ## 📚 支撑文件
 
@@ -278,6 +279,7 @@ qiushi-skill/
 ├── .hermes/INSTALL.md                # Hermes Agent 安装入口
 ├── .opencode/INSTALL.md              # OpenCode 安装入口
 ├── .openclaw/INSTALL.md              # OpenClaw 安装入口
+├── .nanobot/INSTALL.md               # nanobot 安装入口
 ├── bin/
 │   ├── qiushi-skill.mjs              # npm CLI 主入口
 │   └── lib/                          # detect / install / validate 模块
