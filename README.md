@@ -31,7 +31,7 @@
 
 ## 📰 News
 
-🔥 **紧跟时事**：[“躺平”问题的矛盾分析法解读](docs/assets/tangping_editorial_perspective.md) —— 看skill如何“调查在先”与“具体问题具体分析”来进行实事求是。
+🔥 **紧跟时事**：[用户分享“躺平”问题的矛盾分析法解读](docs/assets/tangping_editorial_perspective.md) —— 看skill如何“调查在先”与“具体问题具体分析”来进行实事求是。
 
 感谢大家的支持，项目冲上了 **Github 4 月 9 日日榜第七**！
 
