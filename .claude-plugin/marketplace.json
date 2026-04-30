@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "以经典唯物辩证法与实践哲学武装 AI Agent 大脑的方法论 Skills 合集",
-    "version": "1.3.0"
+    "version": "1.4.0"
   },
   "plugins": [
     {
       "name": "qiushi-skill",
       "source": "./",
       "description": "方法论 Skills + SessionStart hook + commands",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "category": "productivity",
       "keywords": [
         "methodology",

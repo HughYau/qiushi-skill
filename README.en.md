@@ -52,15 +52,17 @@ Non-interactive examples:
 ```bash
 npx qiushi-skill install --target claude-code --scope user
 npx qiushi-skill install --target claude-code,cursor --scope project
-npx qiushi-skill install --target openclaw
+npx qiushi-skill install --target codex,opencode,openclaw,hermes,nanobot --scope user
+npx qiushi-skill install --target all --scope user
 npx qiushi-skill validate
 npx qiushi-skill uninstall --target claude-code --scope user
 ```
 
 The CLI is zero-dependency and does four things:
 
-- installs standard plugin bundles only for Claude Code and Cursor
-- prints setup guidance for OpenClaw, Hermes, Codex, and OpenCode instead of pretending to auto-install them
+- installs standard plugin bundles for Claude Code and Cursor
+- copies skills/commands into the directories scanned by Codex, OpenCode, OpenClaw, Hermes, and nanobot
+- writes `.qiushi-skill-install.json` manifests so uninstall only removes CLI-managed files
 - validates the current checkout or published bundle with one Node-based code path
 - keeps `install`, `validate`, and `uninstall` under one stable entrypoint
 
@@ -85,10 +87,11 @@ claude --plugin-dir .
 
 - Claude Code: use the GitHub marketplace flow above, or `npx qiushi-skill install --target claude-code`.
 - Cursor: use `npx qiushi-skill install --target cursor`, or copy the bundle to your configured plugins directory.
-- Codex: see [`.codex/INSTALL.md`](.codex/INSTALL.md).
-- OpenCode: see [`.opencode/INSTALL.md`](.opencode/INSTALL.md).
-- OpenClaw: see [`.openclaw/INSTALL.md`](.openclaw/INSTALL.md).
-- Hermes Agent: see [`.hermes/INSTALL.md`](.hermes/INSTALL.md).
+- Codex: use `npx qiushi-skill install --target codex`, or see [`.codex/INSTALL.md`](.codex/INSTALL.md).
+- OpenCode: use `npx qiushi-skill install --target opencode`, or see [`.opencode/INSTALL.md`](.opencode/INSTALL.md).
+- OpenClaw: use `npx qiushi-skill install --target openclaw`, or see [`.openclaw/INSTALL.md`](.openclaw/INSTALL.md).
+- Hermes Agent: use `npx qiushi-skill install --target hermes`, or see [`.hermes/INSTALL.md`](.hermes/INSTALL.md).
+- nanobot: use `npx qiushi-skill install --target nanobot`, or see [`.nanobot/INSTALL.md`](.nanobot/INSTALL.md).
 
 ## Validate
 

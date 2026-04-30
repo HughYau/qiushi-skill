@@ -132,15 +132,17 @@ npx qiushi-skill
 ```bash
 npx qiushi-skill install --target claude-code --scope user
 npx qiushi-skill install --target claude-code,cursor --scope project
-npx qiushi-skill install --target openclaw
+npx qiushi-skill install --target codex,opencode,openclaw,hermes,nanobot --scope user
+npx qiushi-skill install --target all --scope user
 npx qiushi-skill uninstall --target claude-code --scope user
 npx qiushi-skill validate
 ```
 
 CLI 会：
 
-- 只为 Claude Code / Cursor 复制标准 bundle 到约定插件目录
-- 为 OpenClaw / Hermes / Codex / OpenCode 输出标准接入指引
+- 为 Claude Code / Cursor 复制标准 plugin bundle
+- 为 Codex / OpenCode / OpenClaw / Hermes / nanobot 复制到宿主实际扫描的 skills/commands 目录
+- 为每个直接复制目录写入 `.qiushi-skill-install.json`，卸载时只删除本 CLI 管理过的文件
 - 用同一条 Node 入口校验当前源码 checkout 或已发布 bundle
 
 ### 方式二：Claude Code 官方 Marketplace 安装
@@ -173,14 +175,20 @@ npx claudepluginhub hughyau/qiushi-skill
 2. 进入仓库目录：
    cd qiushi-skill
 
-3. 如果当前环境有 Node.js 18.17+，优先执行：
+3. 如果当前环境有 Node.js 18.17+，优先选择匹配宿主的目标执行：
    npx qiushi-skill install --target claude-code --scope user
+   npx qiushi-skill install --target cursor --scope user
+   npx qiushi-skill install --target codex --scope user
+   npx qiushi-skill install --target opencode --scope user
+   npx qiushi-skill install --target openclaw --scope user
+   npx qiushi-skill install --target hermes --scope user
+   npx qiushi-skill install --target nanobot --scope user
 
 4. 如果当前环境是 Claude Code，也可以走官方链路：
    /plugin marketplace add HughYau/qiushi-skill
    /plugin install qiushi-skill@qiushi-skill
 
-5. 如果当前环境是 Codex / OpenCode / OpenClaw / Hermes，请分别读取：
+5. 如果需要手动安装或核对平台细节，请分别读取：
    .codex/INSTALL.md
    .opencode/INSTALL.md
    .openclaw/INSTALL.md

@@ -4,17 +4,9 @@
 
 ## 快速开始
 
-1. 克隆仓库到本地。
-2. 让 nanobot 读取 [`.nanobot/INSTALL.md`](../.nanobot/INSTALL.md)。
-3. 将 skill 复制到 nanobot 工作区：
-
-   ```bash
-   mkdir -p ~/.nanobot/workspace/skills
-   cp -r skills/* ~/.nanobot/workspace/skills/
-   ```
-
-4. nanobot 会在新会话中自动发现所有 skill。
-5. 当任务匹配某个方法论时，agent 会按需加载对应 `SKILL.md`。
+1. 运行 `npx qiushi-skill install --target nanobot --scope user`。
+2. nanobot 会在新会话中自动发现所有 skill。
+3. 当任务匹配某个方法论时，agent 会按需加载对应 `SKILL.md`。
 
 ## 推荐映射
 

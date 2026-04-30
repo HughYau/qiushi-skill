@@ -1,6 +1,18 @@
 # qiushi-skill for Codex
 
-按下面步骤接入：
+推荐直接安装到 Codex skills 目录：
+
+```bash
+npx qiushi-skill install --target codex --scope user
+```
+
+这会把 `skills/*` 复制到 `$CODEX_HOME/skills`；如果未设置 `CODEX_HOME`，默认使用 `~/.codex/skills`。项目级安装可使用：
+
+```bash
+npx qiushi-skill install --target codex --scope project
+```
+
+手动接入步骤：
 
 1. 确认仓库已克隆到本地。
 2. 新会话开始时先读取 `skills/arming-thought/SKILL.md`，把它作为路由和方法论约束。

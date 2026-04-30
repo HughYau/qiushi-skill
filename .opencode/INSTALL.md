@@ -1,6 +1,23 @@
 # qiushi-skill for OpenCode
 
-按下面步骤接入：
+推荐直接安装到 OpenCode 原生目录：
+
+```bash
+npx qiushi-skill install --target opencode --scope user
+```
+
+这会复制：
+
+- `skills/*` 到 `~/.config/opencode/skills/`
+- `commands/*.md` 到 `~/.config/opencode/commands/`
+
+项目级安装可使用：
+
+```bash
+npx qiushi-skill install --target opencode --scope project
+```
+
+手动接入步骤：
 
 1. 确认仓库已克隆到本地。
 2. 将 `skills/arming-thought/SKILL.md` 作为新会话的起始方法论入口。

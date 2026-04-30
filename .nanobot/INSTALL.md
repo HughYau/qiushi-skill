@@ -2,8 +2,15 @@
 
 按下面步骤接入：
 
-1. 确认仓库已克隆到本地。
-2. 将 `skills/` 目录下的所有 skill 文件夹复制到 nanobot 工作区的 skills 目录：
+1. 优先使用 CLI 直接安装：
+
+   ```bash
+   npx qiushi-skill install --target nanobot --scope user
+   ```
+
+   默认复制到 `~/.nanobot/workspace/skills/`。
+
+2. 如果需要手动安装，确认仓库已克隆到本地，然后将 `skills/` 目录下的所有 skill 文件夹复制到 nanobot 工作区的 skills 目录：
 
    ```bash
    # 默认工作区路径为 ~/.nanobot/workspace

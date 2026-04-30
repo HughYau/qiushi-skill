@@ -1,10 +1,10 @@
 # Hermes Agent 使用说明
 
-截至 **2026-04-14**，Hermes Agent 官方文档已经提供原生 `skills` 目录和 `hermes skills list` / `hermes chat --toolsets "skills"` 工作流。因此 `qiushi-skill` 在 Hermes 上不再以“没有 skills 系统”为前提，而是直接对接官方 skills 机制。
+截至 **2026-04-30**，Hermes Agent 官方文档已经提供原生 `skills` 目录和 `hermes skills list` / `hermes chat --toolsets "skills"` 工作流。因此 `qiushi-skill` 在 Hermes 上不再以“没有 skills 系统”为前提，而是直接对接官方 skills 机制。
 
 ## 快速开始
 
-1. 把仓库内 `skills/` 复制到 `~/.hermes/skills/qiushi-skill/`
+1. 运行 `npx qiushi-skill install --target hermes --scope user`
 2. 运行 `hermes skills list`，确认新技能被发现
 3. 启动会话：`hermes chat --toolsets "skills,terminal"`
 4. 先让会话吸收 `arming-thought` 的总原则，再按需触发具体方法论

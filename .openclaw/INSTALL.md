@@ -1,8 +1,16 @@
 # qiushi-skill for OpenClaw
 
-按 **2026-04-14** 查阅到的 OpenClaw 官方文档，OpenClaw 可以把 Claude / Cursor / Codex bundles 映射成原生 OpenClaw 插件，并支持直接从 GitHub 仓库读取 marketplace。
+按 **2026-04-30** 查阅到的 OpenClaw 官方文档，OpenClaw 可以直接扫描 `~/.openclaw/skills`，也可以把 Claude / Cursor / Codex bundles 映射成原生 OpenClaw 插件，并支持直接从 GitHub 仓库读取 marketplace。
 
-## 推荐路径：直接走 GitHub marketplace
+## 推荐路径：直接安装 skills
+
+```bash
+npx qiushi-skill install --target openclaw --scope user
+```
+
+CLI 会复制到 `~/.openclaw/skills/qiushi-skill/` 分组下。
+
+## 可选路径：走 GitHub marketplace
 
 ```bash
 openclaw plugins marketplace list HughYau/qiushi-skill

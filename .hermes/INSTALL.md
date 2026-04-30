@@ -1,8 +1,14 @@
 # qiushi-skill for Hermes Agent
 
-按 **2026-04-14** 查阅到的 Hermes Agent 官方文档，Hermes 已提供原生 `skills` 目录、`hermes skills list` 和 `--toolsets "skills"` 工作流。因此这里优先走 Hermes 标准能力，而不是把 qiushi-skill 退化成一大段手写 system prompt。
+按 **2026-04-30** 查阅到的 Hermes Agent 官方文档，Hermes 已提供原生 `skills` 目录、`hermes skills list` 和 `--toolsets "skills"` 工作流。因此这里优先走 Hermes 标准能力，而不是把 qiushi-skill 退化成一大段手写 system prompt。
 
 ## 推荐路径：安装为 Hermes skills
+
+```bash
+npx qiushi-skill install --target hermes --scope user
+```
+
+CLI 会复制到 `~/.hermes/skills/qiushi-skill/` 分组下。
 
 ### macOS / Linux
 

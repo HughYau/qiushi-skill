@@ -23,12 +23,14 @@ const REQUIRED_FILES = [
   ".opencode/INSTALL.md",
   ".openclaw/INSTALL.md",
   ".hermes/INSTALL.md",
+  ".nanobot/INSTALL.md",
   "README.md",
   "README.en.md",
   "docs/README.codex.md",
   "docs/README.opencode.md",
   "docs/README.openclaw.md",
   "docs/README.hermes.md",
+  "docs/README.nanobot.md",
   "docs/platforms.md",
 ];
 
@@ -39,6 +41,7 @@ const MARKDOWN_FILES = [
   "docs/README.opencode.md",
   "docs/README.openclaw.md",
   "docs/README.hermes.md",
+  "docs/README.nanobot.md",
   "docs/platforms.md",
 ];
 
@@ -215,6 +218,11 @@ export async function runValidation({ repoRoot, stdout = process.stdout, stderr 
 
     if (!packageJson.bin?.["qiushi-skill"]) {
       errors.push("package.json is missing bin.qiushi-skill");
+    }
+    for (const requiredPackageFile of [".nanobot", ".codex", ".opencode", ".openclaw", ".hermes"]) {
+      if (!packageJson.files?.includes(requiredPackageFile)) {
+        errors.push(`package.json files is missing '${requiredPackageFile}'`);
+      }
     }
     if (marketplaceVersion !== packageVersion) {
       errors.push(`Version mismatch: package.json=${packageVersion}, marketplace metadata=${marketplaceVersion}`);

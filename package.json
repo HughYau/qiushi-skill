@@ -1,6 +1,6 @@
 {
   "name": "qiushi-skill",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "以经典唯物辩证法与实践哲学武装 AI Agent 大脑的方法论 Skills 合集",
   "author": "HughYau",
   "license": "MIT",
@@ -19,6 +19,7 @@
     ".opencode",
     ".openclaw",
     ".hermes",
+    ".nanobot",
     "bin",
     "README.md",
     "README.en.md",
@@ -32,7 +33,7 @@
     "validate": "node ./bin/qiushi-skill.mjs validate",
     "validate:sh": "bash tests/validate.sh",
     "validate:win": "powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1",
-    "test": "node ./bin/qiushi-skill.mjs validate",
+    "test": "node --test tests/*.test.mjs && node ./bin/qiushi-skill.mjs validate",
     "test:sh": "bash tests/validate.sh",
     "test:win": "powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1",
     "verify:install": "node ./bin/qiushi-skill.mjs validate"

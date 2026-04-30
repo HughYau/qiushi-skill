@@ -33,11 +33,12 @@ Usage:
 Platforms:
   claude-code   Copy plugin bundle into ~/.claude/plugins/qiushi-skill
   cursor        Copy plugin bundle into ~/.cursor/plugins/qiushi-skill
-  openclaw      Print official GitHub marketplace setup guidance
-  hermes        Print native Hermes skills setup guidance
-  codex         Print manual setup guidance
-  opencode      Print manual setup guidance
-  all           Copy managed bundles and print setup guidance for the rest
+  codex         Copy skills into ~/.codex/skills
+  opencode      Copy skills and commands into ~/.config/opencode
+  openclaw      Copy skills into ~/.openclaw/skills/qiushi-skill
+  hermes        Copy skills into ~/.hermes/skills/qiushi-skill
+  nanobot       Copy skills into ~/.nanobot/workspace/skills
+  all           Install all supported targets
 
 Examples:
   npx qiushi-skill
@@ -129,7 +130,7 @@ async function promptInstallChoices(platforms) {
         ? platform.summary
         : isCopyPlatform(platform)
           ? `${platform.detected ? "detected, " : ""}${formatTargetPath(platform, "user")}`
-          : `${platform.detected ? "detected, " : ""}guidance only`;
+          : `${platform.detected ? "detected, " : ""}manual setup`;
       console.log(`  ${index + 1}. ${platform.name} - ${suffix}`);
     });
 
@@ -171,7 +172,10 @@ async function promptInstallChoices(platforms) {
 function printInstallResults(results) {
   for (const result of results) {
     if (result.kind === "copied") {
-      console.log(`✓ ${result.platform.name} 已安装到 ${result.targetRoot}`);
+      const targetLabel = result.targetRoots?.length > 1
+        ? result.targetRoots.join(", ")
+        : result.targetRoot;
+      console.log(`✓ ${result.platform.name} 已安装到 ${targetLabel}`);
       console.log(`  Included: ${result.assets.join(", ")}`);
       if (result.platform.note) {
         console.log(`  Note: ${result.platform.note}`);
@@ -255,7 +259,10 @@ async function runUninstall(parsed) {
       scope: parsed.scope,
       cwd: process.cwd(),
     });
-    console.log(`✓ Removed ${result.platform.name} from ${result.targetRoot}`);
+    const targetLabel = result.targetRoots?.length > 1
+      ? result.targetRoots.join(", ")
+      : result.targetRoot;
+    console.log(`✓ Removed ${result.platform.name} from ${targetLabel}`);
   }
 }
 
