@@ -16,10 +16,17 @@
 
 
 <p align="center">
-  <a href="https://hughyau.com/qiushi-skill/">
+  <a href="https://trendshift.io/repositories/25395?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-25395" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/25395/daily?language=JavaScript" alt="HughYau%2Fqiushi-skill | Trendshift" width="250" height="55"/></a>
+  <a href="https://trendshift.io/repositories/25395?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-25395" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/25395/daily" alt="HughYau%2Fqiushi-skill | Trendshift" width="250" height="55"/></a>
+  <a href="https://trendshift.io/repositories/25395?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-25395" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/25395/weekly?language=JavaScript" alt="HughYau%2Fqiushi-skill | Trendshift" width="250" height="55"/></a>
+</p>
+
+<p align="center">
+<a href="https://hughyau.com/qiushi-skill/">
     <img src="https://img.shields.io/badge/%E5%85%88%E7%9C%8B%E4%BB%8B%E7%BB%8D%E9%A1%B5-%E6%9B%B4%E7%9B%B4%E8%A7%82%E5%9C%B0%E7%90%86%E8%A7%A3%E6%B1%82%E6%98%AF%20-8b1a1a?style=for-the-badge&labelColor=f5efe6&color=8b1a1a" alt="先看介绍页">
   </a>
 </p>
+
 
 ---
 
@@ -28,16 +35,6 @@
 「求是 Skill」是一个 AI Agent Skills 合集，从经典唯物辩证法与实践哲学中提炼出一条总原则和九大方法论工具，系统性地武装 AI 的大脑。不是口号，不是鸡汤，而是可操作的方法论集合。
 
 每一条方法都有据可依、有迹可循，直接引用经典著作原文（详见各 skill 目录下的 `original-texts.md`）。
-
-## 📰 News
-
-🔥 **紧跟时事**：[用户分享“躺平”问题的矛盾分析法解读](docs/assets/tangping_editorial_perspective.md) —— 看skill如何“调查在先”与“具体问题具体分析”来进行实事求是。
-
-感谢大家的支持，项目冲上了 **Github 4 月 9 日日榜第七**！
-
-<p align="center">
-   <img src="https://raw.githubusercontent.com/HughYau/qiushi-skill/main/assets/github0409trend.png" alt="4月9日日榜第七" width="760"/>
-</p>
 
 >  "让人讲话，天不会塌下来。"
 
@@ -114,7 +111,7 @@ graph TD
 ## 📋 展示示例
 
 这里收集了大家在使用求是 Skill 过程中的真实案例。欢迎在 [Discussions](https://github.com/HughYau/qiushi-skill/discussions) 中分享你使用经验帮助项目改进！
-
+- 📖 **[用户分享“躺平”问题的矛盾分析法解读](docs/assets/tangping_editorial_perspective.md)**  —— 看skill如何“调查在先”与“具体问题具体分析”来进行实事求是。
 - 📖 **[分析外行指导内行问题](https://mp.weixin.qq.com/s/bg5cgSAscy37T4gv9YJG0A)**：展示了如何用求是 Skill 拆解复杂的职场现象。
 - 🤖 **[ZZZ 白话讲 AI —— 用“求是方法论”写一本零基础 AI 认知书](https://github.com/mfkyddh/ZZZ-Simple-AI)**：以“求是”方法论组织 AI 入门知识。
 - 🛠️ **[Harness Ralph Qiushi](https://github.com/Tiyou-zm/harness-ralph-qiushi)**：结合求是调查研究与矛盾分析法，构建可靠的长线 Agent 交付循环工作流。
