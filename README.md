@@ -342,9 +342,9 @@ qiushi-skill/
 
 <a href="https://www.star-history.com/?repos=HughYau%2Fqiushi-skill&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&theme=dark&legend=top-left&sealed_token=aj1QNUOtOCFTUi4O6DOfgYltCKt-paOWZoeAIcjLGFUyHTVU-PgQS72JVMsP7SpYY5eZeVildgoVRGJAZE4b8Io54TaA3bEcrh0Yf3BodGgk-vVgAW1Xng" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&legend=top-left&sealed_token=aj1QNUOtOCFTUi4O6DOfgYltCKt-paOWZoeAIcjLGFUyHTVU-PgQS72JVMsP7SpYY5eZeVildgoVRGJAZE4b8Io54TaA3bEcrh0Yf3BodGgk-vVgAW1Xng" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=HughYau/qiushi-skill&type=date&legend=top-left&sealed_token=aj1QNUOtOCFTUi4O6DOfgYltCKt-paOWZoeAIcjLGFUyHTVU-PgQS72JVMsP7SpYY5eZeVildgoVRGJAZE4b8Io54TaA3bEcrh0Yf3BodGgk-vVgAW1Xng" />
  </picture>
 </a>
 
