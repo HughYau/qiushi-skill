@@ -111,7 +111,7 @@ graph TD
 ## 📋 展示示例
 
 这里收集了大家在使用求是 Skill 过程中的真实案例。欢迎在 [Discussions](https://github.com/HughYau/qiushi-skill/discussions) 中分享你使用经验帮助项目改进！
-- 📖 **[用户分享“躺平”问题的矛盾分析法解读](docs/assets/tangping_editorial_perspective.md)**  —— 看skill如何“调查在先”与“具体问题具体分析”来进行实事求是。
+- 📖 **[用户分享“躺平”问题的矛盾分析法解读](https://github.com/HughYau/qiushi-skill/blob/main/docs/assets/tangping_editorial_perspective.md)**  —— 看skill如何“调查在先”与“具体问题具体分析”来进行实事求是。
 - 📖 **[分析外行指导内行问题](https://mp.weixin.qq.com/s/bg5cgSAscy37T4gv9YJG0A)**：展示了如何用求是 Skill 拆解复杂的职场现象。
 - 🤖 **[ZZZ 白话讲 AI —— 用“求是方法论”写一本零基础 AI 认知书](https://github.com/mfkyddh/ZZZ-Simple-AI)**：以“求是”方法论组织 AI 入门知识。
 - 🛠️ **[Harness Ralph Qiushi](https://github.com/Tiyou-zm/harness-ralph-qiushi)**：结合求是调查研究与矛盾分析法，构建可靠的长线 Agent 交付循环工作流。

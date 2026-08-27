@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
-import { cp, mkdtemp, rm } from "node:fs/promises";
+import { cp, mkdtemp, readFile, rm } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
 import { runValidation } from "../bin/lib/validate.mjs";
@@ -48,6 +48,10 @@ test("validate succeeds in a published package without docs directory", async ()
     });
 
     assert.equal(result.ok, true, stderr.output());
+    assert.match(
+      await readFile(path.join(packageRoot, "README.md"), "utf8"),
+      /https:\/\/github\.com\/HughYau\/qiushi-skill\/blob\/main\/docs\/assets\/tangping_editorial_perspective\.md/
+    );
   } finally {
     await rm(tempRoot, { recursive: true, force: true });
   }
