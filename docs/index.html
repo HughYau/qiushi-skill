@@ -947,50 +947,38 @@
 
     <section class="frame section reveal" id="platforms">
       <span class="section-label">安装方式</span>
-      <p class="section-kicker">新版接入链路</p>
-      <h2 class="section-heading">优先走标准安装器，其次走官方与原生入口。</h2>
+      <p class="section-kicker">两条路，够用了</p>
+      <h2 class="section-heading">一条命令装到任何平台，Claude Code 还可以直接走官方 Marketplace。</h2>
       <p class="section-intro">
-        当前推荐的安装顺序已经更新：先用 `npx qiushi-skill` 标准安装器；Claude Code 可直接走官方 Marketplace；Codex、OpenCode、OpenClaw、Hermes 则按各自原生文档接入。
+        核心资产只有 `skills/`、`commands/`、`hooks/` 三样。`npx qiushi-skill` 会检测已安装的宿主并写入对应目录，覆盖 Claude Code、Cursor、Codex、OpenCode、OpenClaw、Hermes Agent 与 nanobot。
       </p>
       <div class="platforms-grid">
         <article class="platform-card">
-          <span class="platform-chip">首推</span>
-          <h3>`npx qiushi-skill` 一键安装</h3>
-          <p>默认进入交互式安装；也支持非交互命令。Node.js `18.17+` 环境下，这是当前最推荐的标准入口。</p>
+          <span class="platform-chip">推荐</span>
+          <h3>`npx qiushi-skill`</h3>
+          <p>交互式安装，所有平台通用；也可以直接指定目标与范围。Node.js `18.17+`。</p>
           <ul class="platform-list">
-            <li>启动安装：`npx qiushi-skill`</li>
-            <li>定向安装：`npx qiushi-skill install --target claude-code --scope user`</li>
-            <li>统一验证：`npx qiushi-skill validate`</li>
+            <li>`npx qiushi-skill`</li>
+            <li>`npx qiushi-skill install --target claude-code --scope user`</li>
+            <li>`npx qiushi-skill validate`</li>
           </ul>
         </article>
         <article class="platform-card">
           <span class="platform-chip">Claude Code</span>
-          <h3>官方 Marketplace 直接安装</h3>
-          <p>仓库已提供 `.claude-plugin/marketplace.json`，可直接从 GitHub 仓库发现并安装。</p>
+          <h3>官方 Marketplace</h3>
+          <p>仓库自带 `.claude-plugin/marketplace.json`，可直接从 GitHub 发现并安装；SessionStart hook 会自动注入入口 skill。</p>
           <ul class="platform-list">
             <li>`/plugin marketplace add HughYau/qiushi-skill`</li>
             <li>`/plugin install qiushi-skill@qiushi-skill`</li>
-            <li>安装后仍可用 `npx qiushi-skill validate` 自检</li>
           </ul>
         </article>
         <article class="platform-card">
-          <span class="platform-chip">原生入口</span>
-          <h3>Codex / OpenCode / OpenClaw / Hermes 按文档接入</h3>
-          <p>这些平台已经分别提供独立的安装说明，按各自原生能力加载 `skills/`、`commands/` 或对应 bundle 即可。</p>
+          <span class="platform-chip">其他宿主</span>
+          <h3>复制 `skills/` 即可</h3>
+          <p>任何能读 Markdown skill 的宿主，把 `skills/` 下的目录复制到它的 skills 目录就能用；各平台目标路径见仓库内的 `docs/platforms.md`。</p>
           <ul class="platform-list">
-            <li>Codex：`.codex/INSTALL.md`</li>
-            <li>OpenCode / OpenClaw / Hermes：各自 `INSTALL.md`</li>
-            <li>细节文档见 `docs/README.*.md`</li>
-          </ul>
-        </article>
-        <article class="platform-card">
-          <span class="platform-chip">通用</span>
-          <h3>源码手动接入与兜底验证</h3>
-          <p>如果不走标准安装器，也可以直接复用仓库内的 `skills/` 与 `commands/`，并用仓库脚本做平台兜底校验。</p>
-          <ul class="platform-list">
-            <li>通用复用：`skills/` + `commands/`</li>
-            <li>macOS / Linux：`tests/validate.sh`</li>
-            <li>Windows：`tests/validate.ps1`</li>
+            <li>`cp -R skills/* &lt;宿主的 skills 目录&gt;/`</li>
+            <li>支持 slash command 的宿主再复制 `commands/`</li>
           </ul>
         </article>
       </div>

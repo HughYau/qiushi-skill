@@ -99,15 +99,7 @@ for f in \
   hooks/session-start.ps1 \
   hooks/run-hook.cmd \
   skills/arming-thought/SKILL.md \
-  .codex/INSTALL.md \
-  .opencode/INSTALL.md \
-  .openclaw/INSTALL.md \
-  .hermes/INSTALL.md \
   README.en.md \
-  docs/README.codex.md \
-  docs/README.opencode.md \
-  docs/README.openclaw.md \
-  docs/README.hermes.md \
   docs/platforms.md
 do
   [ -f "$REPO_ROOT/$f" ] || fail "Missing required file: $f"
@@ -182,10 +174,6 @@ check_md_links() {
 for f in \
   README.md \
   README.en.md \
-  docs/README.codex.md \
-  docs/README.opencode.md \
-  docs/README.openclaw.md \
-  docs/README.hermes.md \
   docs/platforms.md
 do
   [ -f "$REPO_ROOT/$f" ] && check_md_links "$REPO_ROOT/$f"

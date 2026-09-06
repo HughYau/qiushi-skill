@@ -115,103 +115,43 @@ graph TD
 - 📖 **[分析外行指导内行问题](https://mp.weixin.qq.com/s/bg5cgSAscy37T4gv9YJG0A)**：展示了如何用求是 Skill 拆解复杂的职场现象。
 - 🤖 **[ZZZ 白话讲 AI —— 用“求是方法论”写一本零基础 AI 认知书](https://github.com/mfkyddh/ZZZ-Simple-AI)**：以“求是”方法论组织 AI 入门知识。
 - 🛠️ **[Harness Ralph Qiushi](https://github.com/Tiyou-zm/harness-ralph-qiushi)**：结合求是调查研究与矛盾分析法，构建可靠的长线 Agent 交付循环工作流。
+
 ## 📦 安装
 
+两条路，够用了。
 
-### 方式一：`npx qiushi-skill` 一键安装（首推）
-
-默认进入交互式安装：
+### 方式一：`npx qiushi-skill`（推荐，所有平台）
 
 ```bash
 npx qiushi-skill
 ```
 
-也支持非交互式：
+交互式检测已安装的宿主并写入对应目录。也可以直接指定：
 
 ```bash
 npx qiushi-skill install --target claude-code --scope user
-npx qiushi-skill install --target claude-code,cursor --scope project
-npx qiushi-skill install --target codex,opencode,openclaw,hermes,nanobot --scope user
-npx qiushi-skill install --target all --scope user
-npx qiushi-skill uninstall --target claude-code --scope user
-npx qiushi-skill validate
+npx qiushi-skill install --target cursor,codex,opencode,openclaw,hermes,nanobot --scope user
+npx qiushi-skill uninstall --target claude-code
 ```
 
-CLI 会：
+各平台的目标目录与原生入口见 [docs/platforms.md](https://github.com/HughYau/qiushi-skill/blob/main/docs/platforms.md)。没有 Node.js 的话，把 `skills/` 下的目录复制到宿主的 skills 目录即可。
 
-- 为 Claude Code / Cursor 复制标准 plugin bundle
-- 为 Codex / OpenCode / OpenClaw / Hermes / nanobot 复制到宿主实际扫描的 skills/commands 目录
-- 为每个直接复制目录写入 `.qiushi-skill-install.json`，卸载时只删除本 CLI 管理过的文件
-- 用同一条 Node 入口校验当前源码 checkout 或已发布 bundle
-
-### 方式二：Claude Code 官方 Marketplace 安装
-
-仓库根现已提供 `.claude-plugin/marketplace.json`，可以直接从 GitHub 仓库发现：
+### 方式二：Claude Code 官方 Marketplace
 
 ```text
 /plugin marketplace add HughYau/qiushi-skill
 /plugin install qiushi-skill@qiushi-skill
 ```
 
-### 方式三：Claude Plugin Hub（备选）
-
-```bash
-npx claudepluginhub hughyau/qiushi-skill
-```
-
-
-
-### 方式四：直接贴给 AI agent 安装
-
-如果你在让 Claude Code、Cursor Agent 或其他终端型 AI 助手代你安装，可以直接粘贴下面这段：
-
-```text
-请帮我安装 qiushi-skill：
-
-1. 如果当前目录还没有这个仓库，执行：
-   git clone https://github.com/HughYau/qiushi-skill
-
-2. 进入仓库目录：
-   cd qiushi-skill
-
-3. 如果当前环境有 Node.js 18.17+，优先选择匹配宿主的目标执行：
-   npx qiushi-skill install --target claude-code --scope user
-   npx qiushi-skill install --target cursor --scope user
-   npx qiushi-skill install --target codex --scope user
-   npx qiushi-skill install --target opencode --scope user
-   npx qiushi-skill install --target openclaw --scope user
-   npx qiushi-skill install --target hermes --scope user
-   npx qiushi-skill install --target nanobot --scope user
-
-4. 如果当前环境是 Claude Code，也可以走官方链路：
-   /plugin marketplace add HughYau/qiushi-skill
-   /plugin install qiushi-skill@qiushi-skill
-
-5. 如果需要手动安装或核对平台细节，请分别读取：
-   .codex/INSTALL.md
-   .opencode/INSTALL.md
-   .openclaw/INSTALL.md
-   .hermes/INSTALL.md
-   .nanobot/INSTALL.md
-
-6. 安装完成后执行：
-   npx qiushi-skill validate
-
-7. 如果没有 Node.js，再退回到仓库内置脚本：
-   bash tests/validate.sh
-   # 或 Windows：
-   powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
-
-8. 告诉我如何验证安装是否成功。
-```
-
 ## 🚀 使用方式
 
-安装后，每次会话开始时「武装思想」入口 skill 会自动注入，AI 将：
+安装后，每次会话开始时「武装思想」入口 skill 会自动注入（约 50 行的常驻 kernel），AI 将：
 
-1. ☀️ 先以 `实事求是` 约束判断，避免脱离实际和先验结论
-2. 🧭 根据场景判断是否值得调用某个思想武器
-3. 🛠️ 在明显适用时加载对应 skill，而不是机械全调用
+1. ☀️ 先以 `实事求是` 的四条硬规则约束判断：结论跟着证据走、分清事实 / 推断 / 未知、验证过才算完成、遇阻先诊断
+2. 🧭 根据场景判断是否值得调用某个思想武器；直接执行类任务不触发任何下游 skill
+3. 🛠️ 在明显适用时加载对应 skill，而不是机械全调用；宿主已有等价流程时以宿主为准
+
+每个方法论 skill 只保留五段：**用 / 不用**（触发边界）、**操作规程**（具体动作）、**输出模板**（可观测的制品）、**纪律**（硬约束）、**交接**（下一步通常是谁）。原著引文、场景速查、阶段指标等按需查阅，不占常驻上下文。
 
 ### 手动命令入口
 
@@ -235,25 +175,11 @@ npx claudepluginhub hughyau/qiushi-skill
 
 ### 安装验证
 
-首选：
-
 ```bash
 npx qiushi-skill validate
 ```
 
-
-```bash
-bash tests/validate.sh
-```
-
-Windows：
-
-```powershell
-powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
-```
-
-
-更多平台细节见根目录下的 `.codex/INSTALL.md`、`.opencode/INSTALL.md`、`.openclaw/INSTALL.md`、`.hermes/INSTALL.md`、`.nanobot/INSTALL.md`；源码仓库还包含 `docs/platforms.md`。
+没有 Node.js 时可用 `tests/validate.sh`（macOS / Linux）或 `tests/validate.ps1`（Windows）。
 
 ## 📚 支撑文件
 
@@ -262,14 +188,13 @@ powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tests/validate.ps1
 **📜 原著依据（`original-texts.md`）**  
 每个方法论 skill 都附有独立的原著引用文件，收录教员选集中的完整原文引用。这些引用不会被 AI 自动加载，但可随时查阅，保证每条方法论都有据可依。
 
-**🤖 Subagent Prompts**  
-可派遣的专项 agent，将方法论转化为可执行的自动化任务：
-- `investigation-agent-prompt.md` — 系统化调查研究 agent
-- `contradiction-mapper-prompt.md` — 结构化矛盾映射 agent
-- `feedback-synthesizer-prompt.md` — 反馈意见综合 agent
+**🤖 Subagents（`agents/`）**  
+可派遣、宿主可发现的子 agent，在独立上下文中执行方法论：
+- `investigator.md` — 只读调查研究员，产出「事实 / 推断 / 未知」三栏调查报告，主线可并行派遣多个分头调查
+- `self-critic.md` — 新鲜上下文审查员，只看制品不看作者叙述，每条批评附证据与改进建议
 
 **🗺️ Reference Guides**  
-将抽象方法论落地为具体可操作的参考工具：
+按需查阅的参考工具，由对应 SKILL.md 在需要时引用：
 - `contradiction-types-reference.md` — 矛盾类型速查表
 - `review-checklist.md` — 工作审查检查清单
 - `phase-assessment-guide.md` — 持久战阶段评估指南
@@ -281,12 +206,7 @@ qiushi-skill/
 ├── .claude-plugin/
 │   ├── marketplace.json              # Claude Code 原生 marketplace 入口
 │   └── plugin.json                   # Claude Code 插件配置
-├── .codex/INSTALL.md                 # Codex 安装入口
 ├── .cursor-plugin/plugin.json        # Cursor 插件配置
-├── .hermes/INSTALL.md                # Hermes Agent 安装入口
-├── .opencode/INSTALL.md              # OpenCode 安装入口
-├── .openclaw/INSTALL.md              # OpenClaw 安装入口
-├── .nanobot/INSTALL.md               # nanobot 安装入口
 ├── bin/
 │   ├── qiushi-skill.mjs              # npm CLI 主入口
 │   └── lib/                          # detect / install / validate 模块
@@ -297,30 +217,26 @@ qiushi-skill/
 │   ├── session-start.ps1             # Windows PowerShell 注入脚本
 │   └── run-hook.cmd                  # Windows 适配
 ├── agents/
-│   └── self-critic.md                # 自我批评审查 subagent
+│   ├── investigator.md               # 只读调查研究 subagent
+│   └── self-critic.md                # 新鲜上下文审查 subagent
 ├── skills/
-│   ├── arming-thought/
-│   │   └── SKILL.md
-│   ├── contradiction-analysis/
-│   ├── practice-cognition/
-│   ├── investigation-first/
-│   ├── mass-line/
-│   ├── criticism-self-criticism/
-│   ├── protracted-strategy/
-│   ├── concentrate-forces/
-│   ├── spark-prairie-fire/
-│   ├── overall-planning/
-│   └── workflows/
-│       └── SKILL.md
+│   ├── arming-thought/SKILL.md       # 入口 kernel：实事求是 + 路由
+│   ├── contradiction-analysis/       # SKILL.md + original-texts.md + contradiction-types-reference.md
+│   ├── practice-cognition/           # SKILL.md + original-texts.md
+│   ├── investigation-first/          # SKILL.md + original-texts.md
+│   ├── mass-line/                    # SKILL.md + original-texts.md
+│   ├── criticism-self-criticism/     # SKILL.md + original-texts.md + review-checklist.md
+│   ├── protracted-strategy/          # SKILL.md + original-texts.md + phase-assessment-guide.md
+│   ├── concentrate-forces/           # SKILL.md + original-texts.md
+│   ├── spark-prairie-fire/           # SKILL.md + original-texts.md
+│   ├── overall-planning/             # SKILL.md + original-texts.md
+│   └── workflows/SKILL.md            # 四种跨 skill 组合模式
 ├── tests/
 │   ├── validate.sh                   # macOS/Linux 验证脚本
 │   └── validate.ps1                  # Windows 验证脚本
 ├── docs/
-│   ├── platforms.md
-│   ├── README.codex.md
-│   ├── README.hermes.md
-│   ├── README.openclaw.md
-│   └── README.opencode.md
+│   ├── index.html                    # 介绍页（GitHub Pages）
+│   └── platforms.md                  # 各平台接入说明（唯一一份）
 ├── package.json
 ├── CHANGELOG.md
 ├── LICENSE

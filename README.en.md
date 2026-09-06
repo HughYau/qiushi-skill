@@ -47,24 +47,15 @@ Many agents can generate text, but they still fail at disciplined work:
 npx qiushi-skill
 ```
 
-Non-interactive examples:
+Interactive by default: it detects installed hosts and copies into the right directories. Non-interactive:
 
 ```bash
 npx qiushi-skill install --target claude-code --scope user
-npx qiushi-skill install --target claude-code,cursor --scope project
-npx qiushi-skill install --target codex,opencode,openclaw,hermes,nanobot --scope user
 npx qiushi-skill install --target all --scope user
-npx qiushi-skill validate
-npx qiushi-skill uninstall --target claude-code --scope user
+npx qiushi-skill uninstall --target claude-code
 ```
 
-The CLI is zero-dependency and does four things:
-
-- installs standard plugin bundles for Claude Code and Cursor
-- copies skills/commands into the directories scanned by Codex, OpenCode, OpenClaw, Hermes, and nanobot
-- writes `.qiushi-skill-install.json` manifests so uninstall only removes CLI-managed files
-- validates the current checkout or published bundle with one Node-based code path
-- keeps `install`, `validate`, and `uninstall` under one stable entrypoint
+The CLI is zero-dependency, writes a `.qiushi-skill-install.json` manifest per target so uninstall only removes what it installed, and ships `validate` for self-checks.
 
 ### Claude Code Official Marketplace
 
@@ -83,15 +74,9 @@ cd qiushi-skill
 claude --plugin-dir .
 ```
 
-### Platform Notes
+### Other Hosts
 
-- Claude Code: use the GitHub marketplace flow above, or `npx qiushi-skill install --target claude-code`.
-- Cursor: use `npx qiushi-skill install --target cursor`, or copy the bundle to your configured plugins directory.
-- Codex: use `npx qiushi-skill install --target codex`, or see [`.codex/INSTALL.md`](.codex/INSTALL.md).
-- OpenCode: use `npx qiushi-skill install --target opencode`, or see [`.opencode/INSTALL.md`](.opencode/INSTALL.md).
-- OpenClaw: use `npx qiushi-skill install --target openclaw`, or see [`.openclaw/INSTALL.md`](.openclaw/INSTALL.md).
-- Hermes Agent: use `npx qiushi-skill install --target hermes`, or see [`.hermes/INSTALL.md`](.hermes/INSTALL.md).
-- nanobot: use `npx qiushi-skill install --target nanobot`, or see [`.nanobot/INSTALL.md`](.nanobot/INSTALL.md).
+The same CLI targets Cursor, Codex, OpenCode, OpenClaw, Hermes Agent, and nanobot (`--target cursor|codex|opencode|openclaw|hermes|nanobot|all`). Any host that reads Markdown skills can also just copy the `skills/` directory. Target paths and native entrypoints are listed in [`docs/platforms.md`](https://github.com/HughYau/qiushi-skill/blob/main/docs/platforms.md).
 
 ## Validate
 
@@ -113,29 +98,23 @@ Validation checks:
 
 - JSON validity, including `.claude-plugin/marketplace.json`
 - version consistency between `package.json` and marketplace metadata
-- presence of CLI files, hooks, commands, packaged platform guides, and the isolated marketplace bundle
+- presence of CLI files, hooks, commands, and the marketplace bundle
 - frontmatter completeness for skills, commands, and agents
 - local Markdown link integrity
 
 ## How to Use It
 
-The session-start entry skill is `skills/arming-thought/SKILL.md`. Its job is intentionally narrow:
+The session-start entry skill is `skills/arming-thought/SKILL.md`, a ~50-line always-on kernel. Its job is intentionally narrow:
 
-1. enforce `seeking truth from facts`
-2. choose downstream skills only when they clearly help
-3. avoid loading every method by default
+1. enforce `seeking truth from facts` through four hard rules: claims follow evidence, separate fact / inference / unknown, verified means done, diagnose before giving up
+2. route to a downstream skill only when it clearly helps; direct-execution tasks trigger nothing
+3. defer to the host's own plan / review / todo flows when they exist
+
+Every method skill keeps only five sections: **use / don't use** (trigger boundary), **procedure** (concrete actions), **output template** (an observable artifact), **discipline** (hard constraints), and **handoff** (which skill usually comes next). Original quotations and lookup guides live in sibling files and are loaded on demand.
+
+Two host-discoverable sub-agents live in `agents/`: `investigator` (read-only, returns a fact / inference / unknown ledger) and `self-critic` (fresh-context reviewer that reads artifacts, not narratives).
 
 Manual command entrypoints live in `commands/*.md` for hosts that support Markdown slash commands.
-
-## Platforms
-
-- Claude Code: official marketplace + automatic SessionStart injection + commands
-- Cursor: bundle metadata + commands + standard CLI install path
-- OpenClaw: can map Claude/Cursor/Codex bundles into native OpenClaw plugins
-- Hermes Agent: native `skills` directory and CLI/toolset workflow
-- Codex: document-based setup
-- OpenCode: document-based setup
-- Generic hosts: reuse `skills/` and `commands/`
 
 ## Project Layout
 
@@ -145,16 +124,12 @@ qiushi-skill/
 │   ├── marketplace.json
 │   └── plugin.json
 ├── .cursor-plugin/plugin.json
-├── .codex/INSTALL.md
-├── .opencode/INSTALL.md
-├── .openclaw/INSTALL.md
-├── .hermes/INSTALL.md
-├── bin/
-├── skills/
-├── commands/
-├── hooks/
-├── agents/
-├── docs/
+├── bin/                 # npx qiushi-skill CLI
+├── skills/              # entry kernel + nine method skills + workflows
+├── commands/            # manual slash-command entrypoints
+├── hooks/               # SessionStart injection (POSIX + PowerShell)
+├── agents/              # investigator, self-critic
+├── docs/                # site page + platforms.md
 ├── CHANGELOG.md
 ├── README.md
 └── README.en.md

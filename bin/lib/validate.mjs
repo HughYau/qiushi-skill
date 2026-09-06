@@ -19,11 +19,6 @@ const REQUIRED_FILES = [
   "hooks/session-start",
   "hooks/session-start.ps1",
   "skills/arming-thought/SKILL.md",
-  ".codex/INSTALL.md",
-  ".opencode/INSTALL.md",
-  ".openclaw/INSTALL.md",
-  ".hermes/INSTALL.md",
-  ".nanobot/INSTALL.md",
   "README.md",
   "README.en.md",
 ];
@@ -31,11 +26,7 @@ const REQUIRED_FILES = [
 const MARKDOWN_FILES = [
   "README.md",
   "README.en.md",
-  ".codex/INSTALL.md",
-  ".opencode/INSTALL.md",
-  ".openclaw/INSTALL.md",
-  ".hermes/INSTALL.md",
-  ".nanobot/INSTALL.md",
+  "docs/platforms.md",
 ];
 
 const COMMANDS = [
@@ -212,7 +203,7 @@ export async function runValidation({ repoRoot, stdout = process.stdout, stderr 
     if (!packageJson.bin?.["qiushi-skill"]) {
       errors.push("package.json is missing bin.qiushi-skill");
     }
-    for (const requiredPackageFile of [".nanobot", ".codex", ".opencode", ".openclaw", ".hermes"]) {
+    for (const requiredPackageFile of ["skills", "commands", "hooks", "agents", "bin"]) {
       if (!packageJson.files?.includes(requiredPackageFile)) {
         errors.push(`package.json files is missing '${requiredPackageFile}'`);
       }

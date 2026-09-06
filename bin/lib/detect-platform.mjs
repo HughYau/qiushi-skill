@@ -60,7 +60,7 @@ export function getPlatformCatalog({ cwd = process.cwd(), homeDir = os.homedir()
         project: path.join(cwd, ".codex", "skills"),
       },
       markers: [codexHome, path.join(cwd, ".codex")],
-      docUrl: `${GITHUB_BLOB_BASE}/.codex/INSTALL.md`,
+      docUrl: `${GITHUB_BLOB_BASE}/docs/platforms.md`,
     },
     {
       id: "opencode",
@@ -77,7 +77,7 @@ export function getPlatformCatalog({ cwd = process.cwd(), homeDir = os.homedir()
         project: path.join(cwd, ".opencode", "commands"),
       },
       markers: [opencodeConfig, path.join(cwd, ".opencode")],
-      docUrl: `${GITHUB_BLOB_BASE}/.opencode/INSTALL.md`,
+      docUrl: `${GITHUB_BLOB_BASE}/docs/platforms.md`,
     },
     {
       id: "openclaw",
@@ -90,7 +90,7 @@ export function getPlatformCatalog({ cwd = process.cwd(), homeDir = os.homedir()
         project: path.join(cwd, "skills", PACKAGE_NAME),
       },
       markers: [path.join(homeDir, ".openclaw"), path.join(cwd, ".openclaw")],
-      docUrl: `${GITHUB_BLOB_BASE}/.openclaw/INSTALL.md`,
+      docUrl: `${GITHUB_BLOB_BASE}/docs/platforms.md`,
       note: `也可以使用 OpenClaw marketplace：openclaw plugins install ${PACKAGE_NAME}@${REPOSITORY}`,
     },
     {
@@ -104,7 +104,7 @@ export function getPlatformCatalog({ cwd = process.cwd(), homeDir = os.homedir()
         project: path.join(cwd, ".hermes", "skills", PACKAGE_NAME),
       },
       markers: [path.join(homeDir, ".hermes"), path.join(cwd, ".hermes")],
-      docUrl: `${GITHUB_BLOB_BASE}/.hermes/INSTALL.md`,
+      docUrl: `${GITHUB_BLOB_BASE}/docs/platforms.md`,
       note: "Hermes 默认扫描 ~/.hermes/skills；project scope 需要在 Hermes 配置中加入对应 external_dirs。",
     },
     {
@@ -118,7 +118,7 @@ export function getPlatformCatalog({ cwd = process.cwd(), homeDir = os.homedir()
         project: path.join(cwd, ".nanobot", "workspace", "skills"),
       },
       markers: [path.join(homeDir, ".nanobot"), path.join(cwd, ".nanobot")],
-      docUrl: `${GITHUB_BLOB_BASE}/.nanobot/INSTALL.md`,
+      docUrl: `${GITHUB_BLOB_BASE}/docs/platforms.md`,
       note: "如你的 nanobot workspace 不在默认位置，请把安装后的 skills 目录同步到实际 workspace。",
     },
   ];
