@@ -128,6 +128,19 @@ function validateTextIncludes(content, expected, label, errors) {
   }
 }
 
+async function readFileInto(targetPath, label, errors) {
+  try {
+    return await readFile(targetPath, "utf8");
+  } catch {
+    // REQUIRED_FILES already reports a missing file; only report here when the
+    // file exists but cannot be read, to avoid duplicate messages.
+    if (await exists(targetPath)) {
+      errors.push(`Unreadable file: ${label}`);
+    }
+    return null;
+  }
+}
+
 async function validateHookStructure(repoRoot, hooksJson, errors) {
   const sessionStartEntries = hooksJson?.hooks?.SessionStart;
   if (!Array.isArray(sessionStartEntries) || sessionStartEntries.length === 0) {
@@ -146,30 +159,46 @@ async function validateHookStructure(repoRoot, hooksJson, errors) {
   }
 
   const shellHookPath = path.join(repoRoot, "hooks", "session-start");
-  await chmod(shellHookPath, 0o755).catch(() => {});
+  await chmod(shellHookPath, 0o755).catch(() => {
+    errors.push("Could not chmod hooks/session-start to 0o755; the hook may not be executable");
+  });
 
-  const shellHook = await readFile(shellHookPath, "utf8");
-  validateTextIncludes(shellHook, "qiushi:arming-thought", "hooks/session-start", errors);
-  validateTextIncludes(shellHook, "hookSpecificOutput", "hooks/session-start", errors);
-  validateTextIncludes(shellHook, "additionalContext", "hooks/session-start", errors);
-  validateTextIncludes(shellHook, "\"additional_context\"", "hooks/session-start", errors);
-  validateTextIncludes(shellHook, "CURSOR_PLUGIN_ROOT", "hooks/session-start", errors);
-  validateTextIncludes(shellHook, "CLAUDE_PLUGIN_ROOT", "hooks/session-start", errors);
+  const shellHook = await readFileInto(shellHookPath, "hooks/session-start", errors);
+  if (shellHook !== null) {
+    validateTextIncludes(shellHook, "qiushi:arming-thought", "hooks/session-start", errors);
+    validateTextIncludes(shellHook, "hookSpecificOutput", "hooks/session-start", errors);
+    validateTextIncludes(shellHook, "additionalContext", "hooks/session-start", errors);
+    validateTextIncludes(shellHook, "\"additional_context\"", "hooks/session-start", errors);
+    validateTextIncludes(shellHook, "CURSOR_PLUGIN_ROOT", "hooks/session-start", errors);
+    validateTextIncludes(shellHook, "CLAUDE_PLUGIN_ROOT", "hooks/session-start", errors);
+  }
 
-  const psHook = await readFile(path.join(repoRoot, "hooks", "session-start.ps1"), "utf8");
-  validateTextIncludes(psHook, "ConvertTo-AsciiJsonString", "hooks/session-start.ps1", errors);
-  validateTextIncludes(psHook, "qiushi:arming-thought", "hooks/session-start.ps1", errors);
-  validateTextIncludes(psHook, "hookSpecificOutput", "hooks/session-start.ps1", errors);
-  validateTextIncludes(psHook, "additionalContext", "hooks/session-start.ps1", errors);
-  validateTextIncludes(psHook, "\"additional_context\"", "hooks/session-start.ps1", errors);
-  validateTextIncludes(psHook, "CURSOR_PLUGIN_ROOT", "hooks/session-start.ps1", errors);
-  validateTextIncludes(psHook, "CLAUDE_PLUGIN_ROOT", "hooks/session-start.ps1", errors);
+  const psHook = await readFileInto(
+    path.join(repoRoot, "hooks", "session-start.ps1"),
+    "hooks/session-start.ps1",
+    errors,
+  );
+  if (psHook !== null) {
+    validateTextIncludes(psHook, "ConvertTo-AsciiJsonString", "hooks/session-start.ps1", errors);
+    validateTextIncludes(psHook, "qiushi:arming-thought", "hooks/session-start.ps1", errors);
+    validateTextIncludes(psHook, "hookSpecificOutput", "hooks/session-start.ps1", errors);
+    validateTextIncludes(psHook, "additionalContext", "hooks/session-start.ps1", errors);
+    validateTextIncludes(psHook, "\"additional_context\"", "hooks/session-start.ps1", errors);
+    validateTextIncludes(psHook, "CURSOR_PLUGIN_ROOT", "hooks/session-start.ps1", errors);
+    validateTextIncludes(psHook, "CLAUDE_PLUGIN_ROOT", "hooks/session-start.ps1", errors);
+  }
 
-  const cmdHook = await readFile(path.join(repoRoot, "hooks", "run-hook.cmd"), "utf8");
-  validateTextIncludes(cmdHook, "%HOOK_NAME%.ps1", "hooks/run-hook.cmd", errors);
-  validateTextIncludes(cmdHook, "powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File", "hooks/run-hook.cmd", errors);
-  validateTextIncludes(cmdHook, "bash \"%SCRIPT_DIR%%HOOK_NAME%\"", "hooks/run-hook.cmd", errors);
-  validateTextIncludes(cmdHook, "sh \"%SCRIPT_DIR%%HOOK_NAME%\"", "hooks/run-hook.cmd", errors);
+  const cmdHook = await readFileInto(
+    path.join(repoRoot, "hooks", "run-hook.cmd"),
+    "hooks/run-hook.cmd",
+    errors,
+  );
+  if (cmdHook !== null) {
+    validateTextIncludes(cmdHook, "%HOOK_NAME%.ps1", "hooks/run-hook.cmd", errors);
+    validateTextIncludes(cmdHook, "powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File", "hooks/run-hook.cmd", errors);
+    validateTextIncludes(cmdHook, "bash \"%SCRIPT_DIR%%HOOK_NAME%\"", "hooks/run-hook.cmd", errors);
+    validateTextIncludes(cmdHook, "sh \"%SCRIPT_DIR%%HOOK_NAME%\"", "hooks/run-hook.cmd", errors);
+  }
 }
 
 export async function runValidation({ repoRoot, stdout = process.stdout, stderr = process.stderr } = {}) {
@@ -247,6 +276,22 @@ export async function runValidation({ repoRoot, stdout = process.stdout, stderr 
     const filePath = path.join(root, "commands", `${command}.md`);
     if (!(await exists(filePath))) {
       errors.push(`Missing command file: commands/${command}.md`);
+    }
+  }
+
+  // Check the reverse direction too: a file in commands/ that is not listed in
+  // COMMANDS would otherwise pass silently, letting the hard-coded list drift
+  // away from the actual directory contents.
+  const commandsDir = path.join(root, "commands");
+  if (await exists(commandsDir)) {
+    const actualCommands = (await walkFiles(commandsDir, (filePath) => filePath.endsWith(".md")))
+      .map((filePath) => path.basename(filePath, ".md"))
+      .sort();
+    const listed = new Set(COMMANDS);
+    for (const name of actualCommands) {
+      if (!listed.has(name)) {
+        errors.push(`Unlisted command file: commands/${name}.md is not in COMMANDS`);
+      }
     }
   }
 
