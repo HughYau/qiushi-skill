@@ -302,6 +302,18 @@ export async function runValidation({ repoRoot, stdout = process.stdout, stderr 
     }
   }
 
+  // Also validate local links inside every skill/command/agent markdown file:
+  // these carry the bulk of the cross references (e.g. each SKILL.md linking to
+  // its original-texts.md) and would otherwise rot silently.
+  for (const dir of ["skills", "commands", "agents"]) {
+    const dirPath = path.join(root, dir);
+    if (await exists(dirPath)) {
+      for (const filePath of await walkFiles(dirPath, (filePath) => filePath.endsWith(".md"))) {
+        await validateMarkdownLinks(root, path.relative(root, filePath), errors);
+      }
+    }
+  }
+
   stdout.write("Validating hook structure...\n");
   await validateHookStructure(root, jsonObjects.get("hooks/hooks.json"), errors);
 

@@ -125,3 +125,46 @@ test("validate reports a missing hook instead of throwing", async () => {
     );
   });
 });
+
+test("validate checks local links inside skill markdown files", async () => {
+  await withCopiedRepo(async (packageRoot) => {
+    const stdout = captureStream();
+    const stderr = captureStream();
+
+    // skills/*/SKILL.md carry cross references (e.g. original-texts.md) that
+    // were outside link validation entirely; a broken one must be reported.
+    // Keep the frontmatter intact so only link validation is exercised.
+    const skillPath = path.join(packageRoot, "skills", "mass-line", "SKILL.md");
+    const original = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, `${original}\nSee [the missing](does-not-exist.md).\n`, "utf8");
+
+    const result = await runValidation({
+      repoRoot: packageRoot,
+      stdout: stdout.stream,
+      stderr: stderr.stream,
+    });
+
+    assert.equal(result.ok, false, "expected validation to fail for a broken skill link");
+    assert.ok(
+      result.errors.some(
+        (error) => error.includes("does-not-exist.md") && error.includes(`skills${path.sep}mass-line${path.sep}SKILL.md`)
+      ),
+      `expected an error for the broken skill link, got: ${JSON.stringify(result.errors)}`
+    );
+  });
+});
+
+test("validate passes with all current skill markdown links", async () => {
+  const stdout = captureStream();
+  const stderr = captureStream();
+
+  // The repository itself must stay green: every current local link in
+  // skills/commands/agents resolves, so the expanded coverage changes nothing.
+  const result = await runValidation({
+    repoRoot,
+    stdout: stdout.stream,
+    stderr: stderr.stream,
+  });
+
+  assert.equal(result.ok, true, stderr.output());
+});
