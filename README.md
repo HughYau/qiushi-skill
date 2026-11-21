@@ -7,7 +7,8 @@
 <p align="center">
   <strong>语言</strong>：
   <a href="./README.md">简体中文</a> |
-  <a href="./README.en.md">English</a>
+  <a href="./README.en.md">English</a> |
+  <a href="./README.ja.md">日本語</a>
 </p>
 
 > 🌟 "我们的同志在困难的时候，要看到成绩，要看到光明，要提高我们的勇气。"

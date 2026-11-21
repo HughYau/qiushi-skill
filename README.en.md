@@ -7,7 +7,8 @@
 <p align="center">
   <strong>Languages</strong>:
   <a href="./README.md">简体中文</a> |
-  <a href="./README.en.md">English</a>
+  <a href="./README.en.md">English</a> |
+  <a href="./README.ja.md">日本語</a>
 </p>
 
 > Build agents that investigate first, focus on the main contradiction, validate in practice, and keep pushing until the work is actually done.
