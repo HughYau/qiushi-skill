@@ -21,11 +21,13 @@ const REQUIRED_FILES = [
   "skills/arming-thought/SKILL.md",
   "README.md",
   "README.en.md",
+  "README.ja.md",
 ];
 
 const MARKDOWN_FILES = [
   "README.md",
   "README.en.md",
+  "README.ja.md",
   "docs/platforms.md",
 ];
 
